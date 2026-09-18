@@ -282,6 +282,8 @@ reference/                  maqzino-privacy-index.html
 
 ## 8. Environment notes
 
+- **This project lives at** `D:\All My Web sites\A-Langing Page\pnnph.github.io` (moved off the
+  Desktop on 2026-09-18; the old Desktop copy was deleted by the owner).
 - **OS and shells:** Windows 11, Git Bash and PowerShell.
   - Git Bash mangles `/sdcard`-style args, so set `MSYS_NO_PATHCONV=1` when passing
     device paths to adb.
