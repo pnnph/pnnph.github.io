@@ -4,10 +4,10 @@ This file carries over everything the portfolio site needs from the Maqzino app 
 so a new session can continue without the old conversation.
 
 Original locations:
-- Maqzino app repo: `C:\Users\sam\Desktop\Android App\1` (git, branch `main`)
-- Brand/ad package: `C:\Users\sam\Desktop\Android App\Maqzino-brand\`
-- Brand generators (single geometry source): `C:\Users\sam\Desktop\Android App\1\tools\brand\`
-- Do **not** touch `C:\Users\sam\Desktop\Android App\3d brain` (the owner's separate web
+- Maqzino app repo: `D:\Maqzino Project\Android App\1` (git, branch `main`)
+- Brand/ad package: `D:\Maqzino Project\Android App\Maqzino-brand\`
+- Brand generators (single geometry source): `D:\Maqzino Project\Android App\1\tools\brand\`
+- Do **not** touch `D:\Maqzino Project\Android App\3d brain` (the owner's separate web
   project; standing instruction).
 
 ---
