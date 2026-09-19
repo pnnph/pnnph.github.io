@@ -39,3 +39,15 @@ wording; keep them verbatim unless he approves a change.
 - English bio text.
 - Other works besides Maqzino.
 - Design, structure, tech and visual language — the owner said he wants to discuss these next.
+
+## Scope (settled 2026-09-19)
+
+This site is a **portfolio only**. It is not a front door for the owner's psychotherapy
+practice — that will get its own separate site later. So:
+
+- No services, booking, session rates, testimonials or intake forms here.
+- «تروما درمانگر» stays in the bio but **not** in the title line under his name.
+- Psychology is context for who he is, not an offer. Mentioning it once in the About text is
+  right; building a section around it is not.
+- When the therapy site exists, this one may link to it as another "work". Leave room for that
+  in the works section rather than designing it in now.
