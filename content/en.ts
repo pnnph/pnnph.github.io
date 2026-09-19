@@ -11,14 +11,17 @@ export const en = {
   },
 
   nav: {
+    skip: "Skip to content",
     story: "My story",
     works: "My work",
     resume: "Download CV",
     contact: "Get in touch",
     switchLanguage: "فارسی",
+    theme: "Switch theme",
   },
 
   hero: {
+    eyebrow: "Portfolio",
     name: "Peiman Asgari",
     title: "Psychologist, designer, web & mobile developer",
     intro:
@@ -55,4 +58,7 @@ export const en = {
   footer: {
     rights: "Peiman Asgari",
   },
-} as const;
+};
+
+/** شکل محتوا. فارسی هم باید دقیقاً همین کلیدها را داشته باشد، وگرنه build خطا می‌دهد. */
+export type Content = typeof en;

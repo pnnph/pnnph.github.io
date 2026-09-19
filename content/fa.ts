@@ -3,7 +3,9 @@
  * برای عوض کردن هر جمله‌ای، فقط همین فایل را ویرایش کن — به کد دست نزن.
  */
 
-export const fa = {
+import type { Content } from "./en";
+
+export const fa: Content = {
   meta: {
     title: "پیمان عسگری",
     description:
@@ -11,14 +13,17 @@ export const fa = {
   },
 
   nav: {
+    skip: "رفتن به محتوا",
     story: "داستان من",
     works: "پروژه‌های من",
     resume: "دانلود رزومه",
     contact: "تماس با من",
     switchLanguage: "English",
+    theme: "تغییر پوسته",
   },
 
   hero: {
+    eyebrow: "نمونه‌کارها",
     name: "پیمان عسگری",
     title: "روان‌شناس، طراح و توسعه‌دهندهٔ وب و موبایل",
     intro:
@@ -56,4 +61,4 @@ export const fa = {
   footer: {
     rights: "پیمان عسگری",
   },
-} as const;
+};

@@ -1,0 +1,48 @@
+/* لکه‌های نورانی پس‌زمینه. */
+
+.blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blobs span {
+  position: absolute;
+  inline-size: 40vmax;
+  block-size: 40vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: var(--blob-opacity);
+}
+
+.a {
+  background: var(--blob-a);
+  inset-block-start: -10vmax;
+  inset-inline-start: -8vmax;
+  animation: drift 48s ease-in-out infinite alternate;
+}
+
+.b {
+  background: var(--blob-b);
+  inset-block-end: -14vmax;
+  inset-inline-end: -10vmax;
+  animation: drift 64s ease-in-out infinite alternate-reverse;
+}
+
+.c {
+  background: var(--blob-c);
+  inset-block-start: 30%;
+  inset-inline-end: 20%;
+  animation: drift 56s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4vmax, 6vmax, 0) scale(1.15);
+  }
+}

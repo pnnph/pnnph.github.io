@@ -1,0 +1,105 @@
+.hero {
+  display: grid;
+  gap: var(--space-12);
+  padding-block: var(--space-12) var(--space-16);
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-4);
+  /* خط نازکی که از متن جدا می‌شود — امضای صفحه‌های مجله‌ای. */
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.eyebrow::after {
+  content: "";
+  block-size: 1px;
+  inline-size: min(6rem, 20%);
+  background: var(--outline-soft);
+}
+
+.name {
+  font-size: var(--step-4);
+  font-weight: 700;
+  margin-block-end: var(--space-3);
+}
+
+.title {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  margin-block-end: var(--space-6);
+  max-width: var(--width-text);
+}
+
+.intro {
+  max-width: 32rem;
+  margin-block-end: var(--space-8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* دکمهٔ اصلی: گرادیان، درخشش، و کوچک‌شدن هنگام فشار — همان حس اپ. */
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 3rem;
+  padding-inline: var(--space-6);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 500;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.primary {
+  background: linear-gradient(90deg, var(--primary), var(--tertiary));
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+
+.secondary {
+  border: 1px solid var(--outline-soft);
+  color: var(--text);
+}
+
+.secondary:hover {
+  border-color: var(--primary);
+}
+
+.visual {
+  justify-self: center;
+  inline-size: 100%;
+  max-inline-size: 20rem;
+}
+
+.caption {
+  margin-block-start: var(--space-6);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 56rem) {
+  .hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-16);
+    padding-block: var(--space-16) var(--space-24);
+    min-block-size: calc(100dvh - 6rem);
+  }
+}

@@ -1,0 +1,27 @@
+.toggle {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline-soft);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.toggle:hover {
+  border-color: var(--primary);
+}
+
+.toggle:active {
+  transform: scale(0.94);
+}
+
+.icon {
+  line-height: 1;
+}
