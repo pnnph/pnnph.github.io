@@ -169,3 +169,21 @@
     max-inline-size: none;
   }
 }
+
+.more {
+  display: inline-block;
+  margin-block-start: var(--space-6);
+  font-weight: 500;
+  text-decoration: none;
+  border-block-end: 1px solid var(--primary);
+  padding-block-end: var(--space-1);
+}
+
+.arrow {
+  display: inline-block;
+}
+
+/* فلش در راست‌به‌چپ به سمت مخالف اشاره می‌کند؛ متن دست‌نخورده می‌ماند. */
+[dir="rtl"] .arrow {
+  transform: scaleX(-1);
+}

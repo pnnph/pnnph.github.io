@@ -10,7 +10,16 @@ import { site } from "@/content/site";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
 
-export function Header({ t, otherLanguageHref }: { t: Content; otherLanguageHref: string }) {
+export function Header({
+  t,
+  otherLanguageHref,
+  home = "",
+}: {
+  t: Content;
+  otherLanguageHref: string;
+  /** پیشوند لینک‌های لنگردار. در صفحهٔ اصلی خالی، در زیرصفحه‌ها "/" یا "/fa/". */
+  home?: string;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -53,16 +62,16 @@ export function Header({ t, otherLanguageHref }: { t: Content; otherLanguageHref
   }
 
   const links = [
-    { href: "#story", label: t.nav.story },
-    { href: "#works", label: t.nav.works },
+    { href: `${home}#story`, label: t.nav.story },
+    { href: `${home}#works`, label: t.nav.works },
     ...(site.resume ? [{ href: site.resume, label: t.nav.resume }] : []),
-    { href: "#contact", label: t.nav.contact },
+    { href: `${home}#contact`, label: t.nav.contact },
   ];
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`page ${styles.bar}`}>
-        <a href="#main" className={styles.logo} aria-label={t.hero.name}>
+        <a href={home || "#main"} className={styles.logo} aria-label={t.hero.name}>
           P
         </a>
 

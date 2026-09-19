@@ -7,7 +7,7 @@ import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./Works.module.css";
 
-export function Works({ t }: { t: Content }) {
+export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
   const { maqzino } = t.works;
 
   // لینک استور فقط وقتی نشان داده می‌شود که واقعاً باز شود. تا آن روز، وضعیتش
@@ -70,6 +70,13 @@ export function Works({ t }: { t: Content }) {
                 {maqzino.privacy}
               </a>
             </div>
+
+            <a href={maqzinoHref} className={styles.more}>
+              {maqzino.more}{" "}
+              <span className={styles.arrow} aria-hidden="true">
+                →
+              </span>
+            </a>
 
             <p className={styles.credit}>{maqzino.credit}</p>
           </div>

@@ -89,12 +89,42 @@ export const en = {
       privacy: "Privacy policy",
       credit: "3D model based on the open Z-Anatomy project (CC BY-SA 4.0).",
       screenshotAlt: "Maqzino on a phone: the 3D brain, a selected region, and explode mode",
+      more: "More about Maqzino",
     },
 
     next: {
       heading: "What's next",
       text: "A separate site for my therapy practice, and the things I'm building after Maqzino.",
     },
+  },
+
+
+  maqzinoPage: {
+    back: "All work",
+    eyebrow: "Project",
+    overviewHeading: "What it is",
+    featuresHeading: "What it does",
+    anglesHeading: "Four angles on every region",
+    angles: [
+      { title: "Evolutionary", text: "Why this part exists at all, and what it solved for the animals we descend from." },
+      { title: "Biological", text: "What it is made of, how it is wired, and where it sits among its neighbours." },
+      { title: "Neurological", text: "What happens when it works — and what changes when it is damaged." },
+      { title: "Anatomical", text: "Its shape, its landmarks, and the Latin names you meet in textbooks." },
+    ],
+    galleryHeading: "Screens",
+    galleryNote: "Persian interface, dark theme. Tap any screen to see it larger.",
+    shots: [
+      "The whole brain inside the glass body, with the action bar",
+      "Left temporal lobe selected, with its name card and the listen button",
+      "The info panel: names, pronunciation, function and the category tabs",
+      "Left amygdala picked out with 'fade others'",
+      "Explode mode at full strength, every piece separated",
+      "Searching for a region by name",
+    ],
+    stackHeading: "Built with",
+    close: "Close",
+    previous: "Previous",
+    next: "Next",
   },
 
   contact: {

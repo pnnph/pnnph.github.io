@@ -1,0 +1,115 @@
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--space-6);
+}
+
+.thumb {
+  display: block;
+  inline-size: 100%;
+  padding: 0;
+  border: 1px solid var(--outline-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+  cursor: zoom-in;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.thumb:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.thumb img {
+  inline-size: 100%;
+  block-size: auto;
+  display: block;
+}
+
+.caption {
+  margin: var(--space-3) 0 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── نمای بزرگ ─────────────────────────────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgb(0 0 0 / 0.82);
+  backdrop-filter: blur(8px);
+  cursor: zoom-out;
+}
+
+.figure {
+  position: relative;
+  margin: 0;
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  max-block-size: 100%;
+}
+
+.figure img {
+  max-block-size: min(78dvh, 40rem);
+  inline-size: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.figure figcaption {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-inline-size: 28rem;
+}
+
+.controls {
+  position: absolute;
+  inset-block-end: var(--space-6);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.controls button {
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline-soft);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.controls button:hover {
+  border-color: var(--primary);
+}
+
+.arrow {
+  display: inline-block;
+}
+
+[dir="rtl"] .arrow {
+  transform: scaleX(-1);
+}

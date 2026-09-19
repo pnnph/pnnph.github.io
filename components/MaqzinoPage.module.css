@@ -1,0 +1,191 @@
+.head {
+  padding-block: var(--space-12) var(--space-8);
+  max-inline-size: var(--width-text);
+}
+
+.back {
+  display: inline-block;
+  margin-block-end: var(--space-8);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--text);
+}
+
+/* فقط خود فلش آینه می‌شود، نه متن کنارش. */
+.arrow {
+  display: inline-block;
+}
+
+[dir="rtl"] .arrow {
+  transform: scaleX(-1);
+}
+
+.icon {
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+  border-radius: var(--radius-md);
+  margin-block-end: var(--space-6);
+  box-shadow: var(--shadow-card);
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-2);
+}
+
+.title {
+  font-size: var(--step-3);
+  font-weight: 700;
+  margin-block-end: var(--space-3);
+}
+
+.tagline {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  margin-block-end: var(--space-2);
+}
+
+.role {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.section {
+  padding-block: var(--space-8);
+  border-block-start: 1px solid var(--outline-soft);
+}
+
+.heading {
+  font-size: var(--step-1);
+  margin-block-end: var(--space-6);
+}
+
+.body,
+.note {
+  max-inline-size: var(--width-text);
+  color: var(--text-muted);
+}
+
+.note {
+  font-size: 0.875rem;
+  margin-block-end: var(--space-8);
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-inline-size: var(--width-text);
+}
+
+.features li {
+  position: relative;
+  padding-inline-start: var(--space-6);
+  color: var(--text-muted);
+}
+
+.features li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.85em;
+  inline-size: 0.35rem;
+  block-size: 0.35rem;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.angles {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.angle {
+  position: relative;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--glass-tint);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--outline-soft);
+}
+
+.angleTitle {
+  font-size: 1.0625rem;
+  margin-block-end: var(--space-2);
+}
+
+.angleText {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--outline-soft);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.stores {
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+  max-inline-size: 22rem;
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pending {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--outline-soft);
+}
+
+.privacy {
+  font-size: 0.9375rem;
+}
+
+.credit {
+  margin-block-start: var(--space-6);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  max-inline-size: var(--width-text);
+}
+
+@media (min-width: 48rem) {
+  .angles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+}
