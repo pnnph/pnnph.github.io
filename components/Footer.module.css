@@ -1,0 +1,18 @@
+.footer {
+  border-block-start: 1px solid var(--outline-soft);
+  margin-block-start: var(--space-12);
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-block: var(--space-8);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.note {
+  opacity: 0.8;
+}

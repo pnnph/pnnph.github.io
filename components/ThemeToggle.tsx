@@ -9,6 +9,7 @@ type Theme = "dark" | "light";
 
 /** این اسکریپت باید *قبل از* رسم صفحه اجرا شود، وگرنه یک لحظه پوستهٔ اشتباه دیده می‌شود. */
 export const themeScript = `
+document.documentElement.classList.add("js");
 try {
   var t = localStorage.getItem("theme");
   if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;

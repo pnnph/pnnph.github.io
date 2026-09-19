@@ -1,0 +1,171 @@
+.lead {
+  color: var(--text-muted);
+  max-width: var(--width-text);
+}
+
+.card {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  margin-block-start: var(--space-8);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--glass-tint);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--shadow-card);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, var(--glass-border-from), var(--glass-border-to));
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.visual {
+  inline-size: 100%;
+  max-inline-size: 17rem;
+  justify-self: center;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-2);
+}
+
+.name {
+  font-size: var(--step-2);
+  margin-block-end: var(--space-2);
+}
+
+.tagline {
+  color: var(--text-muted);
+  margin-block-end: var(--space-4);
+}
+
+.description {
+  margin-block-end: var(--space-6);
+}
+
+.features {
+  list-style: none;
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--width-text);
+}
+
+.features li {
+  position: relative;
+  padding-inline-start: var(--space-6);
+  color: var(--text-muted);
+}
+
+/* نقطهٔ کوچک رنگی به‌جای بولت پیش‌فرض. */
+.features li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.85em;
+  inline-size: 0.35rem;
+  block-size: 0.35rem;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0 0 var(--space-8);
+  padding: 0;
+}
+
+.chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--outline-soft);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.availability {
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--outline-soft);
+}
+
+.availabilityTitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-3);
+}
+
+.stores {
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+  max-width: 22rem;
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pending {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--outline-soft);
+}
+
+.storeLink,
+.privacy {
+  font-size: 0.9375rem;
+}
+
+.credit {
+  margin-block-start: var(--space-6);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.next {
+  margin-block-start: var(--space-8);
+  color: var(--text-muted);
+  max-width: var(--width-text);
+}
+
+.nextHeading {
+  color: var(--text);
+  font-weight: 500;
+  margin-inline-end: var(--space-2);
+}
+
+@media (min-width: 56rem) {
+  .card {
+    grid-template-columns: 19rem 1fr;
+    gap: var(--space-16);
+    padding: var(--space-12);
+    align-items: center;
+  }
+
+  .visual {
+    max-inline-size: none;
+  }
+}

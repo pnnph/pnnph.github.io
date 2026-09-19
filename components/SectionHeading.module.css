@@ -1,0 +1,25 @@
+.wrap {
+  margin-block-end: var(--space-8);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.label::after {
+  content: "";
+  block-size: 1px;
+  inline-size: min(6rem, 20%);
+  background: var(--outline-soft);
+}
+
+.title {
+  font-size: var(--step-2);
+  font-weight: 700;
+  margin: 0;
+}

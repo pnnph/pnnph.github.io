@@ -1,0 +1,26 @@
+/* بدون جاوااسکریپت: محتوا دیده می‌شود. این حالت پیش‌فرض است و عمدی. */
+.reveal {
+  opacity: 1;
+}
+
+/* با جاوااسکریپت: اول پنهان، بعد با اسکرول ظاهر می‌شود. */
+:global(html.js) .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+}
+
+:global(html.js) .reveal.shown {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js) .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

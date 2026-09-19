@@ -57,6 +57,32 @@ try {
   await page.scheme(scheme);
   await page.viewport(width, height, full ? 1 : 2, preset === "phone");
   await page.load(url);
+  if (full) {
+    // Reveal-on-scroll only fires for elements the viewport has actually seen, so walk
+    // down the page and come back before capturing — otherwise the shot is mostly blank.
+    // Scrolling rather than growing the viewport, because a taller viewport stretches
+    // anything sized in dvh (the hero) and the page height balloons.
+    const total = await page.eval("document.documentElement.scrollHeight");
+    for (let y = 0; y < total; y += Math.floor(height * 0.8)) {
+      await page.eval(`window.scrollTo(0, ${y})`);
+      await new Promise(r => setTimeout(r, 120));
+    }
+    // پس‌زمینه و لکه‌های fixed در عکسِ فراتر از پنجره فقط یک صفحه را می‌پوشانند،
+    // پس موقتاً به حالت عادی برشان می‌گردانیم تا عکس، واقعیت مرورگر را نشان دهد.
+    await page.eval(`(() => {
+      const s = document.createElement("style");
+      s.textContent = "body{background-attachment:scroll!important}[class*=blobs]{position:absolute!important;block-size:100%!important}";
+      document.head.appendChild(s);
+    })()`);
+    await page.eval("window.scrollTo(0, 0)");
+    await new Promise(r => setTimeout(r, 400));
+  }
+  const at = value("at", null);
+  if (at) {
+    // یک بخش مشخص را وسط پنجره می‌آورد: --at "#works"
+    await page.eval(`document.querySelector("${at}")?.scrollIntoView({ block: "start" })`);
+    await new Promise(r => setTimeout(r, 500));
+  }
   // Entrance animations and lazily drawn blobs need a beat to settle before the capture.
   await new Promise(r => setTimeout(r, settle));
   writeFileSync(outPath, await page.png({ full }));

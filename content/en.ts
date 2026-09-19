@@ -34,31 +34,80 @@ export const en = {
 
   about: {
     heading: "My story",
-    skills: "Skills",
-    education: "Education",
-    interests: "Interests",
-    gallery: "Gallery",
+    lead: "Two things I keep returning to: how a mind works, and how a thing should be made.",
+    paragraphs: [
+      "I trained as a psychologist and work with trauma. That work taught me to pay attention to what people actually experience, rather than to what a design or a product claims they experience.",
+      "The rest of my time goes into building — interfaces, brands, Android apps, websites. Maqzino came out of both halves: an atlas of the brain that has to be scientifically right and pleasant to hold at the same time.",
+    ],
+
+    /* ⚠️ این‌ها پیش‌نویس‌اند — با واقعیت تطبیقشان بده. */
+    skills: {
+      heading: "Skills",
+      groups: [
+        { title: "Design", items: ["UI/UX", "Brand identity", "Motion", "Illustration"] },
+        { title: "Mobile", items: ["Kotlin", "Jetpack Compose", "Android", "3D / SceneView"] },
+        { title: "Web", items: ["HTML & CSS", "JavaScript", "React", "Next.js"] },
+        { title: "Psychology", items: ["Trauma therapy", "Clinical psychology"] },
+      ],
+    },
+
+    education: {
+      heading: "Education",
+      /* ⚠️ خالی است. رشته، دانشگاه و سال را اینجا بنویس. */
+      items: [{ degree: "— degree —", place: "— university —", year: "—" }],
+    },
+
+    interests: {
+      heading: "Interests",
+      items: ["Art", "Digital design", "Neuroscience", "Typography", "Photography"],
+    },
   },
 
   works: {
     heading: "My work",
+    lead: "One finished thing, described properly, rather than five half-told ones.",
+
     maqzino: {
       name: "Maqzino",
+      role: "Design and development — Android",
       tagline: "Interactive 3D atlas of the human brain — touch and learn",
       description:
-        "Maqzino is an interactive 3D atlas of the human brain. Rotate the model, tap any part and read about it.",
+        "Maqzino is an interactive 3D atlas of the human brain. Rotate the model, tap any part and read about it — what it does, and how it looks from four scientific angles: evolutionary, biological, neurological and anatomical.",
+      features: [
+        "21 regions and 38 tappable structures inside a translucent body",
+        "Fade, hide or isolate any part to reach deep structures such as the hippocampus",
+        "Explode mode pulls the brain apart piece by piece",
+        "English pronunciation for every region",
+        "Persian and English, light and dark, fully right-to-left",
+        "Completely offline: no internet permission, no ads, no analytics",
+      ],
+      stack: ["Kotlin", "Jetpack Compose", "Hilt", "Room", "SceneView / Filament"],
+      statusHeading: "Availability",
+      inReview: "In review",
+      privacy: "Privacy policy",
       credit: "3D model based on the open Z-Anatomy project (CC BY-SA 4.0).",
+      screenshotAlt: "Maqzino on a phone: the 3D brain, a selected region, and explode mode",
+    },
+
+    next: {
+      heading: "What's next",
+      text: "A separate site for my therapy practice, and the things I'm building after Maqzino.",
     },
   },
 
   contact: {
     heading: "Get in touch",
+    lead: "The fastest way to reach me is email. I read everything.",
     emailButton: "Send an email",
     emailSubject: "Hello Peiman",
+    instagram: "Instagram",
+    linkedin: "LinkedIn",
+    github: "GitHub",
   },
 
   footer: {
     rights: "Peiman Asgari",
+    note: "Built by hand.",
   },
 };
 

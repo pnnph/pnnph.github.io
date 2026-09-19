@@ -1,0 +1,103 @@
+.lead {
+  font-size: var(--step-1);
+  color: var(--text);
+  max-width: 34rem;
+  margin-block-end: var(--space-6);
+}
+
+.paragraph {
+  color: var(--text-muted);
+  max-width: var(--width-text);
+}
+
+.cards {
+  display: grid;
+  gap: var(--space-4);
+  margin-block-start: var(--space-12);
+}
+
+.card {
+  position: relative;
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: var(--glass-tint);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--shadow-card);
+}
+
+/* قاب یک‌پیکسلی گرادیانی — امضای شیشه‌ای سایت. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, var(--glass-border-from), var(--glass-border-to));
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.cardTitle {
+  font-size: var(--step-1);
+  margin-block-end: var(--space-6);
+}
+
+.group + .group {
+  margin-block-start: var(--space-6);
+}
+
+.groupTitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-block-end: var(--space-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline-soft);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.entry {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.entryTitle {
+  font-weight: 500;
+}
+
+.entryMeta {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 56rem) {
+  .cards {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}

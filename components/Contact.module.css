@@ -1,0 +1,55 @@
+.lead {
+  color: var(--text-muted);
+  max-width: var(--width-text);
+  margin-block-end: var(--space-8);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 3rem;
+  padding-inline: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--primary), var(--tertiary));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: var(--shadow-glow);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.email {
+  margin-block-start: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  /* آدرس ایمیل همیشه چپ‌به‌راست خوانده می‌شود، حتی داخل صفحهٔ فارسی. */
+  direction: ltr;
+  text-align: start;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  list-style: none;
+  margin: var(--space-12) 0 0;
+  padding: 0;
+}
+
+.socialLink {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-block-end: 1px solid var(--outline-soft);
+  padding-block-end: var(--space-1);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.socialLink:hover {
+  color: var(--text);
+  border-block-end-color: var(--primary);
+}
