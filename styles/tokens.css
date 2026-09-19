@@ -1,0 +1,155 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   همهٔ رنگ‌ها، فونت‌ها، فاصله‌ها و گردی‌ها — فقط همین یک فایل.
+   برای تغییر ظاهر سایت، اینجا را عوض کن؛ به کد اجزا دست نزن.
+
+   Every colour, font, space and radius lives here and nowhere else.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── فونت‌ها | Fonts ────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/assets/fonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  /* برای عوض کردن فونت، فقط این سه خط. | Swap the font here, nowhere else. */
+  --font-body: "Vazirmatn", system-ui, sans-serif;
+  --font-display: "Vazirmatn", system-ui, sans-serif; /* تیترهای درشت */
+  --font-mono: ui-monospace, "Cascadia Code", monospace;
+
+  /* ── پوستهٔ تیره (پیش‌فرض) | Dark theme, deliberately soft ─────────────
+     روشن‌تر از رنگ اپ مغزینو (‎#0B1020‎) چون شب، روی گوشی، آن‌قدر تیره آزاردهنده است. */
+  --bg-top: #141A2B;
+  --bg-bottom: #1E1B3A;
+  --surface: #1B2136;
+  --surface-raised: #232A42;
+
+  --primary: #7E9AFF;
+  --secondary: #5FCFBE;
+  --tertiary: #B49BFF;
+
+  --blob-a: #6C8CFF;
+  --blob-b: #58C4B4;
+  --blob-c: #A78BFA;
+  --blob-opacity: 0.28;
+
+  --text: #E6EAF7;
+  --text-muted: #AAB3CE;
+  --outline: #6E7796;
+  --outline-soft: #303852;
+
+  --glass-tint: rgb(255 255 255 / 0.07);
+  --glass-border-from: rgb(255 255 255 / 0.28);
+  --glass-border-to: rgb(255 255 255 / 0.05);
+  --glass-blur: 20px;
+
+  --shadow-glow: 0 0 48px -14px var(--primary);
+  --shadow-card: 0 24px 64px -32px rgb(0 0 0 / 0.65);
+
+  /* ── فاصله‌ها | Spacing ──────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* ── گردی گوشه‌ها | Radii ───────────────────────────────────────────── */
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
+  --radius-pill: 999px;
+
+  /* ── اندازهٔ متن | Type scale (fluid) ───────────────────────────────── */
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+  --step-3: clamp(2.2rem, 1.7rem + 2.4vw, 3.5rem);
+  --step-4: clamp(2.8rem, 1.9rem + 4vw, 5.5rem);
+
+  /* ── عرض‌ها | Widths ────────────────────────────────────────────────── */
+  --width-page: 72rem;  /* کل چیدمان */
+  --width-text: 38rem;  /* متن خوانا: ۶۰ تا ۷۵ نویسه در هر خط */
+
+  /* ── حرکت | Motion ──────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-slow: 600ms;
+}
+
+/* ── پوستهٔ روشن | Light theme ────────────────────────────────────────────
+   هم وقتی گوشی روی حالت روشن است، هم وقتی کاربر دکمه را می‌زند. */
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-top: #F8FAFF;
+    --bg-bottom: #E9EDFA;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+
+    --primary: #3D5AFE;
+    --secondary: #00897B;
+    --tertiary: #6C4BC4;
+
+    --blob-a: #8FA6FF;
+    --blob-b: #7FD8CB;
+    --blob-c: #C3AEFF;
+    --blob-opacity: 0.35;
+
+    --text: #1A1F2E;
+    --text-muted: #4A5266;
+    --outline: #757C90;
+    --outline-soft: #C5CAD8;
+
+    --glass-tint: rgb(255 255 255 / 0.6);
+    --glass-border-from: rgb(255 255 255 / 0.9);
+    --glass-border-to: rgb(0 0 0 / 0.08);
+
+    --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
+  }
+}
+
+:root[data-theme="light"] {
+  --bg-top: #F8FAFF;
+  --bg-bottom: #E9EDFA;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
+
+  --primary: #3D5AFE;
+  --secondary: #00897B;
+  --tertiary: #6C4BC4;
+
+  --blob-a: #8FA6FF;
+  --blob-b: #7FD8CB;
+  --blob-c: #C3AEFF;
+  --blob-opacity: 0.35;
+
+  --text: #1A1F2E;
+  --text-muted: #4A5266;
+  --outline: #757C90;
+  --outline-soft: #C5CAD8;
+
+  --glass-tint: rgb(255 255 255 / 0.6);
+  --glass-border-from: rgb(255 255 255 / 0.9);
+  --glass-border-to: rgb(0 0 0 / 0.08);
+
+  --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
+}

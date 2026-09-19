@@ -33,16 +33,20 @@ Three habits carry most of that feeling:
 
 ## Tokens
 
-Define these once on `:root` and use them everywhere. Never write a raw hex value in a rule —
-if a colour is needed that isn't here, add it as a token so it can be changed in one place.
-These come from the Maqzino app's `Color.kt`, so the site and the app stay one family.
+**`styles/tokens.css` is the source of truth** — read it before designing anything, and add to
+it rather than writing a raw hex value in a component. The values below are the shape of that
+file, not a second copy to keep in sync.
+
+They descend from the Maqzino app's `Color.kt`, with the dark ground deliberately **lifted**:
+the owner asked for a soft night mode, and the app's `#0B1020` is harsher than that brief at
+night on a phone.
 
 ```css
 :root {
-  /* surfaces */
-  --bg-top: #0B1020;          /* page gradient, top */
-  --bg-bottom: #1B1740;       /* page gradient, bottom */
-  --surface: #141A2E;         /* solid card, when glass is not appropriate */
+  /* surfaces — dark, soft on purpose */
+  --bg-top: #141A2B;          /* page gradient, top */
+  --bg-bottom: #1E1B3A;       /* page gradient, bottom */
+  --surface: #1B2136;         /* solid card, when glass is not appropriate */
 
   /* accents */
   --primary: #6C8CFF;         /* links, focus rings, the glow */
@@ -135,8 +139,10 @@ Type scale (fluid, so phones aren't shouted at):
 
 ## Bilingual and RTL
 
-The site is Persian and English with a switch. Persian is the primary language and the default
-the visitor lands on.
+The site is Persian and English with a switch. **English is the default** — a visitor lands on
+`/` in English and switches to Persian at `/fa/` (the owner's decision, 2026-09-19; it reverses
+the earlier Persian-first plan). Persian is not the lesser page for that: it is his own voice
+and most of his visitors will read it.
 
 - Set `<html lang="fa" dir="rtl">` and `lang="en" dir="ltr"`, and let the browser do the
   mirroring. That only works if the CSS never fights it.
@@ -231,14 +237,28 @@ The site will outlive several of its current facts. Keep each of these in exactl
 
 ## Build and workflow
 
-Hand-written HTML and CSS, no build step, no framework, no npm dependency in the shipped page.
-JavaScript only where it earns its place (theme toggle, gallery), written so the page still
-works without it. This is a portfolio that must load fast on a phone on a slow connection and
-still be editable by hand in three years.
+Next.js 16 + React 19, statically exported (`output: "export"`). GSAP, Motion and Lenis carry
+the animation; Three.js appears only where a 3D element genuinely earns ~600 KB, lazily loaded,
+with a static image for phones and for anyone who asked for reduced motion. Styling is CSS
+Modules over `styles/tokens.css` — never Tailwind, never a raw colour in a component.
 
-Preview with `node tools/preview/shot.mjs <page> [--full] [--phone] [--light]`, which renders
-the page in headless Chrome and writes a PNG to `.preview/`. Look at the result at phone
-width and desktop width, in both themes, before showing the owner anything.
+Two rules that keep the site editable by its owner, who is not a full-time developer:
+
+- **Strings live in `content/en.ts` and `content/fa.ts`**, never inline in a component. He
+  changes a sentence by editing one obvious line, on github.com if he likes.
+- **Colours, fonts, spacing and radii live in `styles/tokens.css`**, nowhere else.
+
+Build, then look at it:
+
+```
+npm run build
+node tools/preview/serve.mjs out 4321
+node tools/preview/shot.mjs http://localhost:4321/fa/ --phone
+```
+
+Check English and Persian, dark and light, phone and desktop, before showing him anything.
+Watch the page weight while you work — this site has to open quickly on a phone on a slow
+Iranian connection, which is the whole reason Three.js is quarantined.
 
 The owner reviews locally and uploads to GitHub himself. Never create a `maqzino-privacy/`
 folder in this repo — it would shadow the live privacy page the app stores depend on.

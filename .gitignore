@@ -5,3 +5,8 @@ Thumbs.db
 .DS_Store
 .preview/
 tools/preview/.chrome-profile/
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts

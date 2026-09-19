@@ -1,0 +1,54 @@
+# ساخت و انتشار خودکار سایت روی GitHub Pages.
+# هر بار که چیزی روی شاخهٔ main تغییر کند — حتی ویرایش یک متن از داخل سایت گیت‌هاب —
+# این گردش‌کار سایت را می‌سازد و منتشر می‌کند. نیازی به هیچ کلید یا رمزی ندارد.
+#
+# یک‌بار باید در تنظیمات مخزن این را انتخاب کنی:
+#   Settings → Pages → Build and deployment → Source: GitHub Actions
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # امکان اجرای دستی از تب Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# اگر چند تغییر پشت سر هم دادی، فقط آخری منتشر می‌شود.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      # گیت‌هاب پوشه‌هایی که با _ شروع می‌شوند را نادیده می‌گیرد و Next خروجی‌اش را
+      # در _next/ می‌گذارد. بدون این فایل، سایت بدون استایل بالا می‌آید.
+      - run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

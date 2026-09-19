@@ -26,15 +26,37 @@ project, so nothing has been built yet.
 ## Layout
 
 ```
-CLAUDE.md                 this file
-docs/handoff.md           full context carried over from the Maqzino project
-assets/brand/             Maqzino logo, icon and intro animation (copied, see its README)
-assets/maqzino/           store screenshots (1:2 and 9:16 JPEGs)
-reference/                copy of the live Maqzino privacy page source
+CLAUDE.md                     this file
+docs/handoff.md               full context carried over from the Maqzino project
+docs/site-brief.md            the owner's answers: identity, contact, scope, assets
+docs/design-references.md     the references he sent and the direction they set
+.claude/skills/site-design/   the design system — read it before touching markup or CSS
+app/(en)/, app/(fa)/          pages. English is the default at /, Persian at /fa/
+components/                   UI pieces, each with its own .module.css
+content/en.ts, fa.ts          every string on the site, kept out of the components
+content/site.ts               email, social links, resume path, store URLs
+styles/tokens.css             every colour, font, space and radius — the only place for them
+public/assets/                brand, Maqzino screenshots, self-hosted Vazirmatn
+tools/preview/                headless-Chrome screenshots and a tiny static server
+reference/                    copy of the live Maqzino privacy page source
 ```
 
-The site itself does not exist yet. The earlier proposal (not approved) was hand-written
-HTML/CSS with no build step; see `docs/handoff.md` §2.
+## Stack and deployment
+
+Next.js 16 + React 19 with `output: "export"`, so `npm run build` produces plain static files
+in `out/` that run on GitHub Pages or any Iranian shared host — neither can run a Node server.
+GSAP, Motion and Lenis for animation; Three.js only where a 3D element earns its weight, and
+always lazily loaded. CSS Modules plus the tokens file, not Tailwind, because the owner needs
+to read and change the styles himself.
+
+`.github/workflows/deploy.yml` builds and publishes on every push to `main`, so the owner can
+edit a string on github.com and the site updates itself. It writes `out/.nojekyll`, without
+which GitHub Pages silently drops the `_next/` folder and the site loads unstyled. He still
+has to set Settings → Pages → Source → GitHub Actions once.
+
+Preview locally with `npm run build`, then `node tools/preview/serve.mjs out 4321` and
+`node tools/preview/shot.mjs http://localhost:4321/fa/ --phone`. Check both languages and both
+themes before showing him anything.
 
 ## Environment
 
