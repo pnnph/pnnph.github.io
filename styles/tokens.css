@@ -47,16 +47,21 @@
   font-display: swap;
 }
 
+/* Bluu Next — تیترهای درشت انگلیسی. ساختهٔ Jean-Baptiste Morizot برای Velvetyne (VTF).
+   یک فایل Bold داریم، پس همین فایل برای کل بازهٔ وزن ۴۰۰ تا ۷۰۰ اعلام می‌شود تا
+   مرورگر وزن مصنوعی (و دوبار توپُرشدن) نسازد. */
+@font-face {
+  font-family: "Bluu Next";
+  src: url("/assets/fonts/BluuNext-Bold.woff") format("woff");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 :root {
   /* برای عوض کردن فونت، فقط این سه خط. | Swap the font here, nowhere else. */
   --font-body: "Vazirmatn", system-ui, sans-serif;
   --font-display: "Vazirmatn", system-ui, sans-serif; /* تیترهای درشت */
   --font-mono: ui-monospace, "Cascadia Code", monospace;
-}
-
-:root[lang="en"] {
-  --font-body: "DM Sans", "Vazirmatn", system-ui, sans-serif;
-  --font-display: "DM Sans", "Vazirmatn", system-ui, sans-serif;
 
   /* ── پوستهٔ تیره (پیش‌فرض) | Dark theme, deliberately soft ─────────────
      روشن‌تر از رنگ اپ مغزینو (‎#0B1020‎) چون شب، روی گوشی، آن‌قدر تیره آزاردهنده است. */
@@ -119,6 +124,13 @@
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-fast: 160ms;
   --duration-slow: 600ms;
+}
+
+/* صفحهٔ انگلیسی فونت خودش را دارد. وزیرمتن پشت آن می‌ماند تا اگر کلمه‌ای فارسی
+   داخل متن انگلیسی آمد، درست نمایش داده شود. */
+:root[lang="en"] {
+  --font-body: "DM Sans", "Vazirmatn", system-ui, sans-serif;
+  --font-display: "Bluu Next", "DM Sans", "Vazirmatn", serif;
 }
 
 /* ── پوستهٔ روشن | Light theme ────────────────────────────────────────────
