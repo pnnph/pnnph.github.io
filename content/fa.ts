@@ -24,6 +24,8 @@ export const fa: Content = {
 
   hero: {
     eyebrow: "نمونه‌کارها",
+    photoAlt: "پیمان عسگری",
+    photoPlaceholder: "جای عکس شخصی",
     name: "پیمان عسگری",
     title: "روان‌شناس، طراح و توسعه‌دهندهٔ وب و موبایل",
     intro:

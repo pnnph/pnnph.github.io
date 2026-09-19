@@ -1,0 +1,76 @@
+.frame {
+  position: relative;
+  margin: 0;
+  inline-size: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--glass-tint);
+  box-shadow: var(--shadow-card);
+  isolation: isolate;
+}
+
+/* قاب یک‌پیکسلی گرادیانی، همان امضای شیشه‌ای بقیهٔ سایت. */
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, var(--glass-border-from), var(--glass-border-to));
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.photo {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* جایگاه خالی تا رسیدن عکس واقعی. */
+.empty {
+  block-size: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  text-align: center;
+  background: var(--glass-tint);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.emptyMark {
+  display: grid;
+  place-items: center;
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--tertiary));
+  opacity: 0.85;
+}
+
+.emptyText {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  max-inline-size: 14rem;
+}
+
+.glow {
+  position: absolute;
+  inset: 30% 0 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--primary), transparent);
+  opacity: 0.3;
+  filter: blur(48px);
+  pointer-events: none;
+}

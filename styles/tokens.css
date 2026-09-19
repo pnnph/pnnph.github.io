@@ -26,11 +26,37 @@
   font-display: swap;
 }
 
+
+/* DM Sans — فونت انگلیسی (همان فونت متنِ pouria.design). مجوز OFL. */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   /* برای عوض کردن فونت، فقط این سه خط. | Swap the font here, nowhere else. */
   --font-body: "Vazirmatn", system-ui, sans-serif;
   --font-display: "Vazirmatn", system-ui, sans-serif; /* تیترهای درشت */
   --font-mono: ui-monospace, "Cascadia Code", monospace;
+}
+
+:root[lang="en"] {
+  --font-body: "DM Sans", "Vazirmatn", system-ui, sans-serif;
+  --font-display: "DM Sans", "Vazirmatn", system-ui, sans-serif;
 
   /* ── پوستهٔ تیره (پیش‌فرض) | Dark theme, deliberately soft ─────────────
      روشن‌تر از رنگ اپ مغزینو (‎#0B1020‎) چون شب، روی گوشی، آن‌قدر تیره آزاردهنده است. */

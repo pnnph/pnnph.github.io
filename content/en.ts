@@ -22,6 +22,8 @@ export const en = {
 
   hero: {
     eyebrow: "Portfolio",
+    photoAlt: "Peiman Asgari",
+    photoPlaceholder: "Your photo goes here",
     name: "Peiman Asgari",
     title: "Psychologist, designer, web & mobile developer",
     intro:

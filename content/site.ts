@@ -11,6 +11,10 @@ export const site = {
    *  تا آن روز خالی می‌ماند؛ همهٔ لینک‌های داخلی نسبی‌اند. */
   url: "",
 
+  /** عکس شخصی. فایل را در public/assets/photo/ بگذار و مسیرش را اینجا بنویس،
+   *  مثلاً "/assets/photo/peiman.jpg". تا وقتی خالی است، جایگاه خالی نشان داده می‌شود. */
+  photo: "",
+
   email: "peimanasgari@gmail.com",
 
   social: {

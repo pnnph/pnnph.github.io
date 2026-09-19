@@ -5,7 +5,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { Content } from "@/content/en";
 import { site } from "@/content/site";
-import { PhoneFrame } from "./PhoneFrame";
+import { Portrait } from "./Portrait";
 import styles from "./Hero.module.css";
 
 export function Hero({ t }: { t: Content }) {
@@ -55,8 +55,7 @@ export function Hero({ t }: { t: Content }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: reduced ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <PhoneFrame alt={t.works.maqzino.tagline} />
-        <p className={styles.caption}>{t.works.maqzino.name}</p>
+        <Portrait alt={t.hero.photoAlt} placeholder={t.hero.photoPlaceholder} />
       </motion.div>
     </section>
   );
