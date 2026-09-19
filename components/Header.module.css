@@ -17,6 +17,8 @@
 }
 
 .bar {
+  position: relative;
+  z-index: 60;
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -38,39 +40,32 @@
   box-shadow: var(--shadow-glow);
 }
 
-.nav {
+.nav,
+.actions {
   display: none;
-  gap: var(--space-6);
-  margin-inline: auto;
-  font-size: 0.9375rem;
 }
 
-.nav a {
+.nav a,
+.panelNav a {
   text-decoration: none;
   color: var(--text-muted);
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.nav a:hover {
+.nav a:hover,
+.panelNav a:hover {
   color: var(--text);
 }
 
-.actions {
+.lang {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  margin-inline-start: auto;
-}
-
-.lang {
+  min-block-size: 2.75rem;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-pill);
   border: 1px solid var(--outline-soft);
   text-decoration: none;
   font-size: 0.9375rem;
-  min-block-size: 2.75rem;
-  display: flex;
-  align-items: center;
   transition: border-color var(--duration-fast) var(--ease-out);
 }
 
@@ -78,13 +73,130 @@
   border-color: var(--primary);
 }
 
-/* منو روی موبایل جا نمی‌شود؛ فعلاً پنهان است تا منوی موبایل ساخته شود. */
+/* ── دکمهٔ منو (فقط موبایل) ─────────────────────────────────────────────── */
+
+.menuButton {
+  margin-inline-start: auto;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--outline-soft);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.burger {
+  display: grid;
+  gap: 5px;
+  inline-size: 1.125rem;
+}
+
+.burger span {
+  display: block;
+  block-size: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+/* دو خط، که باز شدن منو آن‌ها را به ضربدر تبدیل می‌کند. */
+.burgerOpen span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.burgerOpen span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* ── صفحهٔ کشویی منو ───────────────────────────────────────────────────── */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgb(0 0 0 / 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    visibility var(--duration-slow);
+}
+
+.backdropOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.panel {
+  position: fixed;
+  z-index: 45;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  block-size: 100dvh;
+  inline-size: min(20rem, 85vw);
+  padding: calc(var(--space-24) + var(--space-4)) var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  background: var(--surface);
+  border-inline-start: 1px solid var(--outline-soft);
+  box-shadow: var(--shadow-card);
+  /* از سمتی که منو بسته است بیرون می‌ماند — در فارسی راست، در انگلیسی چپ. */
+  transform: translateX(100%);
+  transition: transform var(--duration-slow) var(--ease-out);
+  overflow-y: auto;
+}
+
+[dir="rtl"] .panel {
+  transform: translateX(-100%);
+}
+
+.panelOpen,
+[dir="rtl"] .panelOpen {
+  transform: translateX(0);
+}
+
+.panelNav {
+  display: grid;
+  gap: var(--space-6);
+  font-size: var(--step-1);
+}
+
+.panelActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-start: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}
+
+/* ── دسکتاپ: منو در یک خط، دکمهٔ همبرگری حذف ───────────────────────────── */
+
 @media (min-width: 48rem) {
   .nav {
     display: flex;
+    gap: var(--space-6);
+    margin-inline: auto;
+    font-size: 0.9375rem;
   }
 
   .actions {
-    margin-inline-start: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .menuButton,
+  .backdrop,
+  .panel {
+    display: none;
   }
 }

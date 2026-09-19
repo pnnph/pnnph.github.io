@@ -20,6 +20,8 @@ export const fa: Content = {
     contact: "تماس با من",
     switchLanguage: "English",
     theme: "تغییر پوسته",
+    openMenu: "باز کردن منو",
+    closeMenu: "بستن منو",
   },
 
   hero: {

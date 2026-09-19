@@ -18,6 +18,8 @@ export const en = {
     contact: "Get in touch",
     switchLanguage: "فارسی",
     theme: "Switch theme",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
 
   hero: {
