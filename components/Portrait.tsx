@@ -4,6 +4,7 @@
 // برای گذاشتن عکس: فایل را در public/assets/photo/ بگذار و مسیرش را در
 // content/site.ts (کلید photo) بنویس. هیچ جای دیگری نیاز به تغییر ندارد.
 import { site } from "@/content/site";
+import { Logo } from "./Logo";
 import styles from "./Portrait.module.css";
 
 export function Portrait({ alt, placeholder }: { alt: string; placeholder: string }) {
@@ -14,7 +15,7 @@ export function Portrait({ alt, placeholder }: { alt: string; placeholder: strin
       ) : (
         <div className={styles.empty} role="img" aria-label={placeholder}>
           <span className={styles.emptyMark} aria-hidden="true">
-            P
+            <Logo />
           </span>
           <span className={styles.emptyText}>{placeholder}</span>
         </div>

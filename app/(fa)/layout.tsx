@@ -7,6 +7,10 @@ import "@/styles/global.css";
 export const metadata: Metadata = {
   title: fa.meta.title,
   description: fa.meta.description,
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function PersianLayout({ children }: { children: React.ReactNode }) {

@@ -8,6 +8,10 @@ import "@/styles/global.css";
 export const metadata: Metadata = {
   title: en.meta.title,
   description: en.meta.description,
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {

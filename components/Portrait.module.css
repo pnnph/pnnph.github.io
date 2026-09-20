@@ -47,6 +47,7 @@
 .emptyMark {
   display: grid;
   place-items: center;
+  padding: 1.1rem;
   inline-size: 4.5rem;
   block-size: 4.5rem;
   border-radius: var(--radius-pill);

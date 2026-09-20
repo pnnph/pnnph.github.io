@@ -7,6 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Content } from "@/content/en";
 import { site } from "@/content/site";
+import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
 
@@ -72,7 +73,7 @@ export function Header({
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`page ${styles.bar}`}>
         <a href={home || "#main"} className={styles.logo} aria-label={t.hero.name}>
-          P
+          <Logo />
         </a>
 
         <nav className={styles.nav}>
