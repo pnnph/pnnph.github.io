@@ -1,0 +1,50 @@
+/* کارت پیش‌نمایش لینک — ۱۲۰۰×۶۳۰، اندازه‌ای که تلگرام، واتساپ، لینکدین و ایکس می‌خواهند. */
+@font-face { font-family: Vazirmatn; src: url("../../public/assets/fonts/Vazirmatn-Bold.woff2"); font-weight: 700 }
+@font-face { font-family: Vazirmatn; src: url("../../public/assets/fonts/Vazirmatn-Regular.woff2"); font-weight: 400 }
+@font-face { font-family: BluuNext; src: url("../../public/assets/fonts/BluuNext-Bold.woff"); font-weight: 700 }
+@font-face { font-family: DMSans; src: url("../../public/assets/fonts/DMSans-Regular.woff2"); font-weight: 400 }
+
+* { box-sizing: border-box; margin: 0 }
+
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  background: linear-gradient(150deg, #141A2B 0%, #1E1B3A 60%, #241F47 100%);
+  color: #E6EAF7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  padding: 0 88px;
+  position: relative;
+}
+
+/* همان لکه‌های نورانی سایت، تا کارت غریبه به نظر نرسد. */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.32;
+}
+body::before { width: 520px; height: 520px; background: #6C8CFF; top: -180px; inset-inline-start: -140px }
+body::after  { width: 460px; height: 460px; background: #A78BFA; bottom: -190px; inset-inline-end: -110px }
+
+.mark {
+  width: 92px;
+  height: 92px;
+  background: currentColor;
+  -webkit-mask: url("../../public/assets/brand-pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
+  mask: url("../../public/assets/brand-pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
+  position: relative;
+}
+
+h1 { font-size: 78px; line-height: 1.1; position: relative }
+p  { font-size: 33px; color: #AAB3CE; position: relative }
+
+.fa { font-family: Vazirmatn, sans-serif }
+.fa h1 { font-weight: 700 }
+.en { font-family: DMSans, sans-serif }
+.en h1 { font-family: BluuNext, serif; font-weight: 700; letter-spacing: -0.02em }

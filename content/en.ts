@@ -137,6 +137,12 @@ export const en = {
     github: "GitHub",
   },
 
+  notFound: {
+    heading: "This page does not exist",
+    text: "The link may be old, or mistyped.",
+    home: "Back to the home page",
+  },
+
   footer: {
     rights: "Peiman Asgari",
     note: "Built by hand.",

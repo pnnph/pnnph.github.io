@@ -8,6 +8,15 @@ import { Works } from "@/components/Works";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
+
+export const metadata: Metadata = pageMeta({
+  lang: "en",
+  page: "home",
+  title: en.meta.title,
+  description: en.meta.description,
+});
 
 export default function HomeEnglish() {
   return (

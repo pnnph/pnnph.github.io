@@ -30,7 +30,14 @@ createServer(async (req, res) => {
     res.writeHead(200, { "content-type": types[extname(path)] || "application/octet-stream" });
     res.end(body);
   } catch {
-    res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
-    res.end("404");
+    // مثل GitHub Pages: آدرس ناموجود، صفحهٔ 404.html خود سایت را می‌گیرد.
+    try {
+      const body = await readFile(join(dir, "404.html"));
+      res.writeHead(404, { "content-type": types[".html"] });
+      res.end(body);
+    } catch {
+      res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
+      res.end("404");
+    }
   }
 }).listen(port, () => console.log(`http://localhost:${port}  →  ${dir}`));

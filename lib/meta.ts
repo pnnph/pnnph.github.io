@@ -1,0 +1,68 @@
+// ساخت متادیتای هر صفحه در یک جا.
+//
+// چیزهایی که اینجا تولید می‌شوند و چشم بازدیدکننده نمی‌بیندشان، ولی مهم‌اند:
+//  • canonical — آدرس رسمی صفحه، تا گوگل نسخه‌های تکراری نسازد
+//  • hreflang — به گوگل می‌گوید این دو صفحه یک محتوا به دو زبان‌اند، نه دو چیز جدا
+//  • Open Graph — تصویر و متنی که تلگرام، واتساپ و لینکدین هنگام اشتراک لینک نشان می‌دهند
+import type { Metadata } from "next";
+import { site } from "@/content/site";
+import type { Language } from "@/content/site";
+
+/** آدرس همان صفحه در زبان دیگر. */
+const paths = {
+  home: { en: "/", fa: "/fa/" },
+  maqzino: { en: "/maqzino/", fa: "/fa/maqzino/" },
+};
+
+export function pageMeta({
+  lang,
+  page,
+  title,
+  description,
+}: {
+  lang: Language;
+  page: keyof typeof paths;
+  title: string;
+  description: string;
+}): Metadata {
+  const path = paths[page][lang];
+  const image = `/assets/og/og-${lang}.png`;
+
+  return {
+    metadataBase: new URL(site.url),
+    title,
+    description,
+
+    alternates: {
+      canonical: path,
+      languages: {
+        en: paths[page].en,
+        fa: paths[page].fa,
+        // به موتور جستجو می‌گوید اگر زبان کاربر هیچ‌کدام نبود، کدام را نشان بدهد.
+        "x-default": paths[page].en,
+      },
+    },
+
+    openGraph: {
+      type: "website",
+      locale: lang === "fa" ? "fa_IR" : "en_US",
+      url: path,
+      siteName: title,
+      title,
+      description,
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+
+    icons: {
+      icon: "/favicon.png",
+      apple: "/apple-touch-icon.png",
+    },
+  };
+}
