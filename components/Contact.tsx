@@ -25,7 +25,11 @@ export function Contact({ t }: { t: Content }) {
           {t.contact.emailButton}
         </a>
 
-        <p className={styles.email}>{site.email}</p>
+        {/* bdi آدرس را از جهت صفحه جدا می‌کند: خودش چپ‌به‌راست خوانده می‌شود،
+            ولی جای نشستنش را از صفحه می‌گیرد — زیر دکمه، نه پرتاب‌شده به لبهٔ مخالف. */}
+        <p className={styles.email}>
+          <bdi>{site.email}</bdi>
+        </p>
 
         <ul className={styles.social}>
           {links.map(link => (

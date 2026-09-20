@@ -86,6 +86,7 @@ export const fa: Content = {
       stack: ["Kotlin", "Jetpack Compose", "Hilt", "Room", "SceneView / Filament"],
       statusHeading: "در دسترس بودن",
       inReview: "در صف بررسی",
+      get: "دریافت",
       privacy: "سیاست حریم خصوصی",
       credit: "مدل سه‌بعدی بر پایهٔ پروژهٔ آزاد Z-Anatomy (مجوز CC BY-SA 4.0) ساخته شده است.",
       screenshotAlt: "مغزینو روی گوشی: مغز سه‌بعدی، یک ناحیهٔ انتخاب‌شده، و حالت جداسازی",

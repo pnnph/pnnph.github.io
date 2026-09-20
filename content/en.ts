@@ -86,6 +86,7 @@ export const en = {
       stack: ["Kotlin", "Jetpack Compose", "Hilt", "Room", "SceneView / Filament"],
       statusHeading: "Availability",
       inReview: "In review",
+      get: "Get it",
       privacy: "Privacy policy",
       credit: "3D model based on the open Z-Anatomy project (CC BY-SA 4.0).",
       screenshotAlt: "Maqzino on a phone: the 3D brain, a selected region, and explode mode",

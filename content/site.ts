@@ -32,7 +32,7 @@ export const site = {
    *  هر کدام که هنوز در صف بررسی است، خالی بماند. */
   maqzino: {
     bazaar: "",
-    myket: "",
+    myket: "https://myket.ir/app/ir.pnnph.maqzino",
     privacy: "https://pnnph.github.io/maqzino-privacy/",
   },
 } as const;

@@ -42,12 +42,15 @@
 /* ── نمای بزرگ ─────────────────────────────────────────────────────────── */
 
 .lightbox {
+  /* شبکهٔ ایمنی: هیچ‌چیز داخل این لایه نباید از پهنای صفحه بیرون بزند. */
+  overflow: hidden;
   position: fixed;
   inset: 0;
   z-index: 80;
   display: grid;
   place-items: center;
-  padding: var(--space-6);
+  /* پایین، جا برای دکمه‌ها باز می‌شود تا روی تصویر نیفتند. */
+  padding: var(--space-6) var(--space-4) calc(var(--space-16) + var(--space-8));
 }
 
 .backdrop {
@@ -66,12 +69,19 @@
   display: grid;
   gap: var(--space-4);
   justify-items: center;
+  inline-size: 100%;
+  max-inline-size: 26rem;
   max-block-size: 100%;
 }
 
 .figure img {
-  max-block-size: min(78dvh, 40rem);
-  inline-size: auto;
+  /* عرض صریح ۱۰۰٪، نه auto.
+     با auto، مرورگر یک لحظه عرض ذاتی تصویر (۱۰۸۰ پیکسل) را در نظر می‌گیرد، صفحه پهن
+     می‌شود و مرورگر موبایل کل صفحه را کوچک می‌کند — و آن کوچک‌شدن دیگر برنمی‌گردد. */
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: min(66svh, 38rem);
+  object-fit: contain;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
 }

@@ -26,7 +26,7 @@ export function pageMeta({
   description: string;
 }): Metadata {
   const path = paths[page][lang];
-  const image = `/assets/og/og-${lang}.png`;
+  const image = `/assets/og/og-${lang}.jpg`;
 
   return {
     metadataBase: new URL(site.url),

@@ -11,6 +11,16 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* گرادیان روی html می‌نشیند، نه body.
+     مرورگر رنگِ بوم را از html می‌گیرد؛ وقتی گرادیان روی body بود، کشیدنِ صفحه
+     فراتر از انتها (یا جمع‌شدن نوار آدرس موبایل) زیرش را سفید نشان می‌داد.
+     رنگ پایینِ گرادیان هم به‌عنوان رنگ پشتیبان پشتش نشسته. */
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%) var(--bg-bottom) fixed;
+  min-block-size: 100%;
+  /* جلوگیری از پهن‌شدن صفحه. حالا که html اسکرول می‌شود، clip باید اینجا باشد:
+     روی موبایل، اگر چیزی یک لحظه از پهنای صفحه بیرون بزند، مرورگر کل صفحه را
+     کوچک می‌کند و آن کوچک‌شدن دیگر برنمی‌گردد — همان چیزی که در گالری دیده شد. */
+  overflow-x: clip;
 }
 
 body {
@@ -21,8 +31,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--step-0);
   color: var(--text);
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
-  background-attachment: fixed;
+  background: transparent;
   /* فارسی به فضای بیشتری بین خطوط نیاز دارد تا خوانا بماند. */
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;

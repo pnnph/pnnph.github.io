@@ -57,8 +57,8 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
                   <li key={store.name} className={styles.store}>
                     <span>{store.name}</span>
                     {store.url ? (
-                      <a href={store.url} className={styles.storeLink}>
-                        {store.name}
+                      <a href={store.url} target="_blank" rel="noopener">
+                        {maqzino.get}
                       </a>
                     ) : (
                       <span className={styles.pending}>{maqzino.inReview}</span>

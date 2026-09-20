@@ -27,8 +27,6 @@
   font-family: var(--font-mono);
   font-size: 0.9375rem;
   color: var(--text-muted);
-  /* آدرس ایمیل همیشه چپ‌به‌راست خوانده می‌شود، حتی داخل صفحهٔ فارسی. */
-  direction: ltr;
   text-align: start;
 }
 
