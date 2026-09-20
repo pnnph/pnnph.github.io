@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>آزمون نشان</title>
+<style>
+  :root {
+    --bg: #141A2B; --panel: #1B2136; --ink: #E6EAF7; --muted: #AAB3CE;
+    --line: #303852; --primary: #7E9AFF; --tertiary: #B49BFF;
+  }
+  * { box-sizing: border-box }
+  body { margin: 0; padding: 32px 40px; background: var(--bg); color: var(--ink);
+         font-family: system-ui, sans-serif; line-height: 1.8 }
+  h1 { font-size: 20px; margin: 0 0 4px }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 8px }
+  .err { color: #FF9A9A; font-size: 14px; margin: 16px 0; display: none }
+  .test { border-top: 1px solid var(--line); padding: 22px 0;
+          display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center }
+  .name { font-size: 14px; color: var(--muted) }
+  .name b { display: block; color: var(--ink); font-size: 15px }
+  .strip { display: flex; align-items: center; gap: 28px; flex-wrap: wrap }
+  .box { display: grid; place-items: center }
+  .label { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px }
+  /* اندازه‌ها */
+  .s96 svg, .s96 img { width: 96px; height: 96px }
+  .s48 svg, .s48 img { width: 48px; height: 48px }
+  .s24 svg, .s24 img { width: 24px; height: 24px }
+  .s16 svg, .s16 img { width: 16px; height: 16px }
+  /* داخل دایرهٔ هدر */
+  .chip { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center;
+          background: linear-gradient(135deg, var(--primary), var(--tertiary)); color: #fff }
+  .chip svg, .chip img { width: 24px; height: 24px }
+  /* پوستهٔ روشن */
+  .light { background: #F8FAFF; color: #1A1F2E; border-radius: 14px; padding: 14px 20px;
+           display: flex; align-items: center; gap: 24px }
+  /* آزمون سیلوئت */
+  .blur svg, .blur img { filter: blur(1.6px) }
+  /* کنار نشان مغزینو */
+  .family { display: flex; align-items: center; gap: 40px }
+  .family svg, .family img { width: 72px; height: 72px }
+  .divider { width: 1px; height: 56px; background: var(--line) }
+</style>
+</head>
+<body>
+<h1>آزمون نشان</h1>
+<p class="sub">فایل <code>logo.svg</code> را در همین پوشه بگذار و صفحه را تازه کن.</p>
+<p class="err" id="err"></p>
+
+<div class="test">
+  <div class="name"><b>۱ — اندازه‌ها</b>در ۲۴ و ۱۶ پیکسل باید هنوز خودش باشد</div>
+  <div class="strip">
+    <div><div class="box s96" data-logo></div><div class="label">۹۶</div></div>
+    <div><div class="box s48" data-logo></div><div class="label">۴۸</div></div>
+    <div><div class="box s24" data-logo></div><div class="label">۲۴</div></div>
+    <div><div class="box s16" data-logo></div><div class="label">۱۶ — favicon</div></div>
+  </div>
+</div>
+
+<div class="test">
+  <div class="name"><b>۲ — سیلوئت</b>تار شده؛ فرم کلی باید تشخیص‌پذیر بماند</div>
+  <div class="strip">
+    <div><div class="box s96 blur" data-logo></div></div>
+    <div><div class="box s48 blur" data-logo></div></div>
+    <div><div class="box s24 blur" data-logo></div></div>
+  </div>
+</div>
+
+<div class="test">
+  <div class="name"><b>۳ — پوستهٔ روشن</b>مشکی روی سفید هم باید درست باشد</div>
+  <div class="strip">
+    <div class="light">
+      <div class="box s96" data-logo></div>
+      <div class="box s48" data-logo></div>
+      <div class="box s24" data-logo></div>
+    </div>
+  </div>
+</div>
+
+<div class="test">
+  <div class="name"><b>۴ — داخل دایرهٔ هدر</b>باید جا شود و خفه نشود</div>
+  <div class="strip">
+    <div class="chip" data-logo></div>
+    <div class="light"><div class="chip" data-logo></div></div>
+  </div>
+</div>
+
+<div class="test">
+  <div class="name"><b>۵ — کنار نشان مغزینو</b>باید خواهر و برادر به نظر برسند</div>
+  <div class="strip family">
+    <div><div data-logo></div><div class="label">نشان تو</div></div>
+    <div class="divider"></div>
+    <div><img src="../../public/assets/brand/logo/svg/maqzino-mark-white.svg" alt="Maqzino"><div class="label">مغزینو</div></div>
+  </div>
+</div>
+
+<script>
+  // نشان را به‌صورت inline تزریق می‌کنیم (نه <img>) تا رنگش را از پوستهٔ اطرافش بگیرد،
+  // یعنی همان کاری که در خود سایت می‌کند.
+  fetch("logo.svg")
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(markup => {
+      for (const slot of document.querySelectorAll("[data-logo]")) {
+        slot.innerHTML = markup;
+        const svg = slot.querySelector("svg");
+        if (!svg) continue;
+        svg.removeAttribute("width");
+        svg.removeAttribute("height");
+        // هر رنگ ثابتی را با رنگ متنِ اطراف عوض می‌کنیم تا هر دو پوسته را بشود سنجید.
+        for (const el of svg.querySelectorAll("*")) {
+          if (el.getAttribute("stroke") && el.getAttribute("stroke") !== "none")
+            el.setAttribute("stroke", "currentColor");
+          if (el.getAttribute("fill") && el.getAttribute("fill") !== "none")
+            el.setAttribute("fill", "currentColor");
+        }
+      }
+    })
+    .catch(e => {
+      const err = document.getElementById("err");
+      err.style.display = "block";
+      err.textContent = "فایل logo.svg پیدا نشد (" + e.message + "). آن را در پوشهٔ tools/logo-test/ بگذار.";
+    });
+</script>
+</body>
+</html>

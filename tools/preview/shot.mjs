@@ -33,7 +33,7 @@ const presets = { phone: [390, 844], tablet: [834, 1112], desktop: [1440, 900] }
 const preset = flag("phone") ? "phone" : flag("tablet") ? "tablet" : "desktop";
 const width = Number(value("w", presets[preset][0]));
 const height = Number(value("h", presets[preset][1]));
-const full = flag("full");
+let full = flag("full");
 const scheme = flag("light") ? "light" : flag("dark") ? "dark" : "dark";
 const settle = Number(value("wait", 400));
 
@@ -57,6 +57,14 @@ try {
   await page.scheme(scheme);
   await page.viewport(width, height, full ? 1 : 2, preset === "phone");
   await page.load(url);
+  // A page that already fits the viewport needs no full-page path, and asking for a
+  // beyond-viewport capture of one produces a misaligned image on right-to-left pages.
+  if (full && (await page.eval("document.documentElement.scrollHeight")) <= height) {
+    full = false;
+    // Full-page capture drops to 1x; an ordinary shot can have the sharper 2x back.
+    await page.viewport(width, height, 2, preset === "phone");
+  }
+
   if (full) {
     // Reveal-on-scroll only fires for elements the viewport has actually seen, so walk
     // down the page and come back before capturing — otherwise the shot is mostly blank.
