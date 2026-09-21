@@ -249,21 +249,27 @@ fourth tab (anatomical) is cut off. Retake it after 1.0.1 if it matters.
   press-shrink ("bouncy").
 - Background: vertical gradient with slow drifting colour blobs.
 
-`assets/brand/README.md` holds the brand usage rules (clear space, minimum sizes, file formats).
+`brand-kit/maqzino/README.md` holds the brand usage rules (clear space, minimum sizes, file formats).
 
 ---
 
 ## 6. Assets in this repo
 
 ```
-assets/brand/logo/svg/      maqzino-mark-{black,white}.svg, maqzino-lockup-{fa,en}-{black,white}.svg
-assets/brand/logo/png/      same as PNG at 512 / 1024 / 2048, transparent
-assets/brand/app-icon/      maqzino-store-icon.svg, -512.png, -1024.png (white tile)
-assets/brand/animation/svg/ maqzino-{fa,en}-{black,white}.svg (animated)
-assets/brand/animation/webm/maqzino-{fa,en}-{black,white}.webm (alpha)
-assets/maqzino/screenshots/ see §4
-reference/                  maqzino-privacy-index.html
+brand-kit/maqzino/logo/svg/  maqzino-mark-{black,white}.svg, maqzino-lockup-{fa,en}-{black,white}.svg
+brand-kit/maqzino/logo/png/  same as PNG at 512 / 1024 / 2048, transparent
+brand-kit/maqzino/app-icon/  maqzino-store-icon.svg, -512.png, -1024.png (white tile)
+brand-kit/maqzino/animation/ maqzino-{fa,en}-{black,white}: animated .svg and alpha .webm
+brand-kit/pnnph/             Peiman's own mark, black and white, 32 to 1024
+public/assets/brand/         the only two brand files the site serves: pnnph-mark.png, maqzino-icon.png
+public/assets/maqzino/screenshots/phone/  see §4
+reference/                   maqzino-privacy-index.html
 ```
+
+The kits sit outside `public/` on purpose. Everything under `public/` is copied verbatim
+into `out/` and published, so 2.9 MB that no page ever requested was being uploaded on
+every deploy and was readable by anyone who guessed the path. Only two brand files are
+actually loaded, and they live in `public/assets/brand/`. See `brand-kit/README.md`.
 
 ---
 

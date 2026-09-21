@@ -36,8 +36,8 @@ body::after  { width: 460px; height: 460px; background: #A78BFA; bottom: -190px;
   width: 92px;
   height: 92px;
   background: currentColor;
-  -webkit-mask: url("../../public/assets/brand-pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
-  mask: url("../../public/assets/brand-pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
+  -webkit-mask: url("../../brand-kit/pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
+  mask: url("../../brand-kit/pnnph/pnnph-mark-white-512.png") center / contain no-repeat;
   position: relative;
 }
 

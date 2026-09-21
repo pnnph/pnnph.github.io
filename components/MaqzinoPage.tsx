@@ -50,7 +50,7 @@ export function MaqzinoPage({
               </a>
 
               <img
-                src="/assets/brand/app-icon/maqzino-store-icon-512.png"
+                src="/assets/brand/maqzino-icon.png"
                 alt=""
                 width={512}
                 height={512}

@@ -36,7 +36,8 @@ components/                   UI pieces, each with its own .module.css
 content/en.ts, fa.ts          every string on the site, kept out of the components
 content/site.ts               email, social links, resume path, store URLs
 styles/tokens.css             every colour, font, space and radius — the only place for them
-public/assets/                brand, Maqzino screenshots, self-hosted Vazirmatn
+public/assets/                only what a page actually loads — it is all published verbatim
+brand-kit/                    the Maqzino and pnnph brand kits, deliberately outside public/
 tools/preview/                headless-Chrome screenshots and a tiny static server
 reference/                    copy of the live Maqzino privacy page source
 ```
