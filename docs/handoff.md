@@ -76,7 +76,9 @@ so none of this is approved:
 - **Check from outside Iran:** after publishing, verify the URL with a fetch. The Iranian
   hosts the owner might use can block foreign traffic, and Play reviewers need access.
 
-**Follow-ups in the Maqzino app once the site is live:**
+**The site is live at `https://pnnph.github.io` (published 2026-09-21).**
+
+**Follow-ups in the Maqzino app now that the site is live:**
 - `app/src/main/java/ir/pnnph/maqzino/core/AppConfig.kt` → `WEBSITE_URL` currently points
   to the privacy page as a stopgap (commit `50aeb56`). Switch it to the site.
 - Cafe Bazaar developer profile: the website fields were left empty. Add the site URL there.
@@ -107,8 +109,8 @@ Kotlin, Jetpack Compose, Hilt, Room, DataStore and SceneView/Filament.
 
 | Store | Status | Expected listing URL (once approved) |
 |---|---|---|
-| Cafe Bazaar | submitted 2026-09-16, "در صف انتظار" (queued for review) | `https://cafebazaar.ir/app/ir.pnnph.maqzino` |
-| Myket | submitted 2026-09-17, under review | `https://myket.ir/app/ir.pnnph.maqzino` |
+| Cafe Bazaar | submitted 2026-09-16, still queued — URL returned 404 on 2026-09-21 | `https://cafebazaar.ir/app/ir.pnnph.maqzino` |
+| Myket | **published** — verified live 2026-09-21, linked from the site | `https://myket.ir/app/ir.pnnph.maqzino` |
 | Google Play | not available (see §1) | — |
 
 Check the URLs actually resolve before linking them.
