@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import styles from "./PhoneFrame.module.css";
 
 const SHOTS = [
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-01.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-02.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-04.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-05.jpg",
+  "/assets/maqzino/screenshots/phone/maqzino-01.webp",
+  "/assets/maqzino/screenshots/phone/maqzino-02.webp",
+  "/assets/maqzino/screenshots/phone/maqzino-04.webp",
+  "/assets/maqzino/screenshots/phone/maqzino-05.webp",
 ];
 
 const INTERVAL_MS = 4000;
@@ -32,8 +32,8 @@ export function PhoneFrame({ alt }: { alt: string }) {
             src={src}
             /* فقط اولی alt دارد؛ بقیه تصویر تزئینی‌اند و تکرارشان برای صفحه‌خوان مزاحمت است. */
             alt={i === 0 ? alt : ""}
-            width={1080}
-            height={2160}
+            width={900}
+            height={2000}
             loading={i === 0 ? "eager" : "lazy"}
             className={styles.shot}
             style={{ opacity: i === index ? 1 : 0 }}

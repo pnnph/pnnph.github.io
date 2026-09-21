@@ -89,6 +89,12 @@
   --glass-border-to: rgb(255 255 255 / 0.05);
   --glass-blur: 20px;
 
+  /* بدنهٔ ماکت گوشی. در پوستهٔ تیره شیشه‌ای می‌ماند، در روشن تیره می‌شود —
+     وگرنه سفیدِ روی سفید می‌افتد و اصلاً دیده نمی‌شود که گوشی است. */
+  --phone-body-from: rgb(255 255 255 / 0.22);
+  --phone-body-to: rgb(255 255 255 / 0.04);
+  --phone-edge: rgb(255 255 255 / 0.16);
+
   --shadow-glow: 0 0 48px -14px var(--primary);
   --shadow-card: 0 24px 64px -32px rgb(0 0 0 / 0.65);
 
@@ -162,6 +168,10 @@
     --glass-border-to: rgb(0 0 0 / 0.08);
 
     --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
+
+    --phone-body-from: #39405C;
+    --phone-body-to: #1C2133;
+    --phone-edge: rgb(0 0 0 / 0.22);
   }
 }
 
@@ -190,4 +200,8 @@
   --glass-border-to: rgb(0 0 0 / 0.08);
 
   --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
+
+  --phone-body-from: #39405C;
+  --phone-body-to: #1C2133;
+  --phone-edge: rgb(0 0 0 / 0.22);
 }

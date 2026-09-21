@@ -7,14 +7,11 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Gallery.module.css";
 
-const SHOTS = [
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-01.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-02.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-03.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-04.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-05.jpg",
-  "/assets/maqzino/screenshots/portrait-1x2/maqzino-06.jpg",
-];
+const SHOT_COUNT = 10;
+const SHOTS = Array.from(
+  { length: SHOT_COUNT },
+  (_, i) => `/assets/maqzino/screenshots/phone/maqzino-${String(i + 1).padStart(2, "0")}.webp`,
+);
 
 export function Gallery({
   captions,
@@ -72,7 +69,7 @@ export function Gallery({
               className={styles.thumb}
               onClick={() => setOpen(i)}
             >
-              <img src={src} alt={captions[i]} width={1080} height={2160} loading="lazy" />
+              <img src={src} alt={captions[i]} width={900} height={2000} loading="lazy" />
             </button>
             <p className={styles.caption}>{captions[i]}</p>
           </li>
@@ -85,7 +82,7 @@ export function Gallery({
           <button type="button" className={styles.backdrop} onClick={close} aria-hidden="true" tabIndex={-1} />
 
           <figure className={styles.figure}>
-            <img src={SHOTS[open]} alt={captions[open]} width={1080} height={2160} />
+            <img src={SHOTS[open]} alt={captions[open]} width={900} height={2000} />
             <figcaption>{captions[open]}</figcaption>
           </figure>
 
