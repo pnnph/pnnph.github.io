@@ -27,7 +27,7 @@ export default function HomeEnglish() {
       <a className="skip-link" href="#main">
         {en.nav.skip}
       </a>
-      <Header t={en} otherLanguageHref="/fa/" resumeHref={site.resume.en} />
+      <Header t={en} otherLanguageHref="/fa/" blogHref="/blog/" resumeHref={site.resume.en} />
       <main id="main">
         <Hero t={en} />
         <About t={en} />

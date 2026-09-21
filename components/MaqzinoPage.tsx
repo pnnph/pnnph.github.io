@@ -13,11 +13,13 @@ import styles from "./MaqzinoPage.module.css";
 export function MaqzinoPage({
   t,
   home,
+  blogHref,
   otherLanguageHref,
   resumeHref,
 }: {
   t: Content;
   home: string;
+  blogHref: string;
   otherLanguageHref: string;
   resumeHref: string;
 }) {
@@ -36,7 +38,13 @@ export function MaqzinoPage({
       <a className="skip-link" href="#main">
         {t.nav.skip}
       </a>
-      <Header t={t} home={home} otherLanguageHref={otherLanguageHref} resumeHref={resumeHref} />
+      <Header
+        t={t}
+        home={home}
+        blogHref={blogHref}
+        otherLanguageHref={otherLanguageHref}
+        resumeHref={resumeHref}
+      />
 
       <main id="main" className="page">
         <article>

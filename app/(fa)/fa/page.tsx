@@ -27,7 +27,7 @@ export default function HomePersian() {
       <a className="skip-link" href="#main">
         {fa.nav.skip}
       </a>
-      <Header t={fa} otherLanguageHref="/" resumeHref={site.resume.fa} />
+      <Header t={fa} otherLanguageHref="/" blogHref="/fa/blog/" resumeHref={site.resume.fa} />
       <main id="main">
         <Hero t={fa} />
         <About t={fa} />

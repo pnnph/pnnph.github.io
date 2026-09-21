@@ -32,8 +32,10 @@ docs/site-brief.md            the owner's answers: identity, contact, scope, ass
 docs/design-references.md     the references he sent and the direction they set
 .claude/skills/site-design/   the design system — read it before touching markup or CSS
 app/(en)/, app/(fa)/          pages. English is the default at /, Persian at /fa/
+                              /, /maqzino/, /blog/ and /blog/<slug>/ — each mirrored under /fa/
 components/                   UI pieces, each with its own .module.css
 content/en.ts, fa.ts          every string on the site, kept out of the components
+content/posts.ts              the blog posts, both languages in one object per post
 content/site.ts               email, social links, resume path, store URLs
 styles/tokens.css             every colour, font, space and radius — the only place for them
 public/assets/                only what a page actually loads — it is all published verbatim

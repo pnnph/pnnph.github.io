@@ -12,20 +12,26 @@ import type { Language } from "@/content/site";
 const paths = {
   home: { en: "/", fa: "/fa/" },
   maqzino: { en: "/maqzino/", fa: "/fa/maqzino/" },
+  blog: { en: "/blog/", fa: "/fa/blog/" },
 };
 
 export function pageMeta({
   lang,
   page,
+  slug,
   title,
   description,
 }: {
   lang: Language;
   page: keyof typeof paths;
+  /** برای صفحهٔ یک یادداشت: نشانی‌اش زیر /blog/. نشانی در هر دو زبان یکی است. */
+  slug?: string;
   title: string;
   description: string;
 }): Metadata {
-  const path = paths[page][lang];
+  const base = paths[page];
+  const pair = slug ? { en: `${base.en}${slug}/`, fa: `${base.fa}${slug}/` } : base;
+  const path = pair[lang];
   const image = `/assets/og/og-${lang}.jpg`;
 
   return {
@@ -36,10 +42,10 @@ export function pageMeta({
     alternates: {
       canonical: path,
       languages: {
-        en: paths[page].en,
-        fa: paths[page].fa,
+        en: pair.en,
+        fa: pair.fa,
         // به موتور جستجو می‌گوید اگر زبان کاربر هیچ‌کدام نبود، کدام را نشان بدهد.
-        "x-default": paths[page].en,
+        "x-default": pair.en,
       },
     },
 

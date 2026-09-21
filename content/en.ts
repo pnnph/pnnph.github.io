@@ -7,6 +7,9 @@
 export type Degree = { degree: string; place?: string; year?: string };
 
 export const en = {
+  /** For formatting dates and numbers at build time. */
+  locale: "en-GB",
+
   meta: {
     title: "Peiman Asgari",
     description:
@@ -17,6 +20,7 @@ export const en = {
     skip: "Skip to content",
     story: "My story",
     works: "My work",
+    blog: "Notes",
     resume: "Download CV",
     contact: "Get in touch",
     switchLanguage: "FA",
@@ -140,6 +144,16 @@ export const en = {
     close: "Close",
     previous: "Previous",
     next: "Next",
+  },
+
+  blog: {
+    eyebrow: "Notes",
+    heading: "Notes",
+    lead: "Occasional writing about the things I build and the ideas underneath them.",
+    empty: "Nothing here yet.",
+    back: "All notes",
+    readTime: "min read",
+    postEyebrow: "Note",
   },
 
   contact: {

@@ -13,5 +13,5 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function Maqzino() {
-  return <MaqzinoPage t={en} home="/" otherLanguageHref="/fa/maqzino/" resumeHref={site.resume.en} />;
+  return <MaqzinoPage t={en} home="/" blogHref="/blog/" otherLanguageHref="/fa/maqzino/" resumeHref={site.resume.en} />;
 }

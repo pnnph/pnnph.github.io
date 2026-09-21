@@ -14,12 +14,15 @@ export function Header({
   t,
   otherLanguageHref,
   home = "",
+  blogHref,
   resumeHref,
 }: {
   t: Content;
   otherLanguageHref: string;
   /** پیشوند لینک‌های لنگردار. در صفحهٔ اصلی خالی، در زیرصفحه‌ها "/" یا "/fa/". */
   home?: string;
+  /** فهرست یادداشت‌ها در همان زبان. اگر خالی باشد، لینکش اصلاً نمی‌آید. */
+  blogHref?: string;
   /** رزومهٔ همان زبان. اگر خالی باشد، دکمه‌اش اصلاً نمی‌آید. */
   resumeHref?: string;
 }) {
@@ -67,6 +70,7 @@ export function Header({
   const links = [
     { href: `${home}#story`, label: t.nav.story },
     { href: `${home}#works`, label: t.nav.works },
+    ...(blogHref ? [{ href: blogHref, label: t.nav.blog }] : []),
     ...(resumeHref ? [{ href: resumeHref, label: t.nav.resume }] : []),
     { href: `${home}#contact`, label: t.nav.contact },
   ];

@@ -6,6 +6,8 @@
 import type { Content, Degree } from "./en";
 
 export const fa: Content = {
+  locale: "fa-IR",
+
   meta: {
     title: "پیمان عسگری",
     description:
@@ -16,6 +18,7 @@ export const fa: Content = {
     skip: "رفتن به محتوا",
     story: "داستان من",
     works: "پروژه‌های من",
+    blog: "یادداشت‌ها",
     resume: "دانلود رزومه",
     contact: "تماس با من",
     switchLanguage: "EN",
@@ -138,6 +141,16 @@ export const fa: Content = {
     close: "بستن",
     previous: "قبلی",
     next: "بعدی",
+  },
+
+  blog: {
+    eyebrow: "یادداشت‌ها",
+    heading: "یادداشت‌ها",
+    lead: "هر از گاهی دربارهٔ چیزهایی که می‌سازم و فکری که پشتشان است می‌نویسم.",
+    empty: "هنوز چیزی اینجا نیست.",
+    back: "همهٔ یادداشت‌ها",
+    readTime: "دقیقه خواندن",
+    postEyebrow: "یادداشت",
   },
 
   contact: {
