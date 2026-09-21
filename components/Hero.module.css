@@ -8,13 +8,17 @@
 /* ── صحنه: نام، پرتره و نشان روی هم ──────────────────────────────────── */
 
 .stage {
+  /* همهٔ اندازه‌های صحنه از یک عدد می‌آیند: پهنای پرتره. اندازهٔ حروف هم از همین
+     ساخته می‌شود، پس نام همیشه به همان نسبت از سر پهن‌تر می‌ماند — در هر زبان،
+     روی هر صفحه. ۶۶vw در فهرست است تا روی موبایل تصویر از دو طرف بیرون نزند. */
+  --portrait: min(50vh, 20rem, 66vw);
+
   position: relative;
   inline-size: 100%;
   max-inline-size: 46rem;
-  /* ارتفاع از پنجره می‌آید، نه از عرض — وگرنه روی نمایشگر پهن، متن زیر خط دید می‌افتد. */
-  block-size: min(56vh, 26rem);
-  display: grid;
-  place-items: center;
+  /* کمی بلندتر از پرتره، تا نام در نوار خالیِ بالا بنشیند و بالای جمجمه از
+     پایینِ حرف‌ها بیرون بیاید. */
+  block-size: calc(var(--portrait) * 1.16);
   margin-block-end: var(--space-8);
 }
 
@@ -22,9 +26,8 @@
   position: absolute;
   inset: 0;
   margin: 0;
-  font-size: clamp(3rem, 14vw, 10.5rem);
   font-weight: 700;
-  line-height: 0.92;
+  line-height: 0.88;
   pointer-events: none;
 }
 
@@ -34,27 +37,38 @@
   white-space: nowrap;
 }
 
-/* نام کوچک: دو نیمه در دو لبه، با سر در میانشان. */
-.given {
-  display: flex;
-  justify-content: space-between;
-  inline-size: 74%;
-  margin-inline: auto;
-}
-
-/* نام کوچک پشت تصویر می‌نشیند، نام خانوادگی رویش — همان چیدمان طرح. */
+/* نام کوچک پشت تصویر می‌نشیند و نام خانوادگی رویش — همان چیدمان طرح.
+   نام یک‌تکه است و بالای جمجمه از پایینِ حرف‌ها بالا می‌آید: هم پشت عکس دیده
+   می‌شود، هم کامل خوانده می‌شود، و در فارسی هم حرفی از حرف دیگر جدا نمی‌افتد. */
 .given {
   z-index: 1;
-  inset-block-start: 1%;
+  inset-block-start: 0;
   inset-inline: 0;
+  text-align: center;
+  /* ضریب‌ها از اندازه‌گیریِ واقعیِ همین دو کلمه در همین دو فونت درآمده‌اند:
+     «Peiman» به ازای هر پیکسلِ فونت ۳٫۳۶ پیکسل پهنا می‌گیرد و «Asgari» ۲٫۸۳.
+     هدف این است که نام کوچک حدود ۱٫۲۵ برابرِ سر باشد و نام خانوادگی ۱٫۳ برابر. */
+  font-size: calc(var(--portrait) * 0.372);
 }
 
 .family {
   z-index: 3;
-  inset-block-end: 3%;
-  inset-inline-end: 4%;
+  inset-block-end: 2%;
+  inset-inline: 0;
+  text-align: center;
+  font-size: calc(var(--portrait) * 0.46);
   /* کمی درخشش تا روی تصویر هم خوانا بماند. */
   text-shadow: 0 0 40px rgb(0 0 0 / 0.28);
+}
+
+/* حروف فارسی باریک‌ترند: «پیمان» با همان اندازه دوسومِ «Peiman» پهنا می‌گیرد و
+   «عسگری» برعکس، از «Asgari» پهن‌تر است. پس هر کدام ضریب خودش را دارد. */
+:root[lang="fa"] .given {
+  font-size: calc(var(--portrait) * 0.552);
+}
+
+:root[lang="fa"] .family {
+  font-size: calc(var(--portrait) * 0.432);
 }
 
 :root[data-theme="light"] .family,
@@ -65,19 +79,20 @@
 .portrait {
   position: absolute;
   z-index: 2;
-  inset-block: 0;
+  /* به کفِ صحنه چسبیده است، پس نوار خالیِ بالا برای نام می‌ماند. */
+  inset-block-end: 0;
   inset-inline: 0;
   margin-inline: auto;
-  block-size: 100%;
-  aspect-ratio: 1 / 1;
+  inline-size: var(--portrait);
+  block-size: var(--portrait);
 }
 
 .badge {
   position: absolute;
   z-index: 4;
-  inset-block-end: -2%;
-  /* سمت مقابلِ نام خانوادگی می‌نشیند، همان‌طور که در طرح بود. */
-  inset-inline-start: 2%;
+  /* بالاتر از نام خانوادگی و روی لبهٔ چپِ پرتره — نه روی حرف‌ها، نه بیرون تصویر. */
+  inset-block-end: 41%;
+  inset-inline-start: calc(50% - var(--portrait) * 0.55);
 }
 
 /* ── متن زیر صحنه ────────────────────────────────────────────────────── */
@@ -141,10 +156,7 @@
   }
 
   .stage {
-    max-inline-size: 50rem;
-  }
-
-  .name {
-    font-size: clamp(5rem, 10vw, 10.5rem);
+    max-inline-size: 52rem;
+    --portrait: min(56vh, 26rem);
   }
 }
