@@ -1,0 +1,144 @@
+/* رزومه — یک صفحهٔ A4، دو ستونه.
+   چیدمان از نمونه‌ای که صاحب سایت پسندید گرفته شده؛ محتوا و زبان بصری از خودِ سایت. */
+
+@font-face { font-family: Vazirmatn; src: url("../../public/assets/fonts/Vazirmatn-Regular.woff2"); font-weight: 400 }
+@font-face { font-family: Vazirmatn; src: url("../../public/assets/fonts/Vazirmatn-Medium.woff2"); font-weight: 500 }
+@font-face { font-family: Vazirmatn; src: url("../../public/assets/fonts/Vazirmatn-Bold.woff2"); font-weight: 700 }
+@font-face { font-family: DMSans; src: url("../../public/assets/fonts/DMSans-Regular.woff2"); font-weight: 400 }
+@font-face { font-family: DMSans; src: url("../../public/assets/fonts/DMSans-Medium.woff2"); font-weight: 500 }
+@font-face { font-family: DMSans; src: url("../../public/assets/fonts/DMSans-Bold.woff2"); font-weight: 700 }
+@font-face { font-family: BluuNext; src: url("../../public/assets/fonts/BluuNext-Bold.woff"); font-weight: 700 }
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+:root {
+  --ink: #16192A;
+  --muted: #5B6178;
+  --line: #DFE3EE;
+  --accent: #3D5AFE;
+  --pad: 12mm;
+}
+
+* { box-sizing: border-box; margin: 0 }
+
+body {
+  inline-size: 210mm;
+  min-block-size: 297mm;
+  padding: var(--pad);
+  background: #fff;
+  color: var(--ink);
+  font-size: 8.8pt;
+  line-height: 1.5;
+}
+
+body.fa { font-family: Vazirmatn, sans-serif; direction: rtl; line-height: 1.6 }
+body.en { font-family: DMSans, sans-serif; direction: ltr }
+
+/* ── سربرگ ───────────────────────────────────────────────────────────── */
+
+.head { border-block-end: 1px solid var(--line); padding-block-end: 3.4mm; margin-block-end: 4.2mm }
+
+.name { font-size: 22pt; font-weight: 700; line-height: 1.1; letter-spacing: 0 }
+.en .name { font-family: BluuNext, serif; letter-spacing: -0.01em }
+
+.role { color: var(--accent); font-size: 11pt; font-weight: 500; margin-block-start: 1mm }
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm 5mm;
+  margin-block-start: 2.5mm;
+  font-size: 8.4pt;
+  color: var(--muted);
+}
+
+.contact span { white-space: nowrap }
+.contact bdi { direction: ltr }
+
+/* ── دو ستون ─────────────────────────────────────────────────────────── */
+
+.columns { display: grid; grid-template-columns: 1.55fr 1fr; gap: 8mm }
+
+h2 {
+  font-size: 7.6pt;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-block-end: 2.5mm;
+}
+
+.fa h2 { letter-spacing: 0; text-transform: none; font-size: 8.4pt }
+
+section + section { margin-block-start: 4.4mm }
+
+/* ── تجربه ───────────────────────────────────────────────────────────── */
+
+.job + .job { margin-block-start: 3.2mm }
+
+.job h3 { font-size: 10pt; font-weight: 700; line-height: 1.3 }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 3mm;
+  font-size: 8.2pt;
+  color: var(--muted);
+  margin-block-start: 0.4mm;
+}
+
+.org { color: var(--ink); font-weight: 500 }
+
+.job p { margin-block-start: 1mm; color: var(--muted) }
+
+.job ul { margin: 1.2mm 0 0; padding: 0; list-style: none }
+
+.job li {
+  position: relative;
+  padding-inline-start: 3.4mm;
+  margin-block-start: 1mm;
+}
+
+.job li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 1.9mm;
+  inline-size: 1.1mm;
+  block-size: 1.1mm;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ── ستون کناری ──────────────────────────────────────────────────────── */
+
+.summary { color: var(--muted) }
+.summary strong { color: var(--ink); font-weight: 500 }
+
+.entry + .entry { margin-block-start: 3mm }
+.entry h3 { font-size: 9.4pt; font-weight: 700; line-height: 1.3 }
+.entry .where { color: var(--accent); font-size: 8.6pt; font-weight: 500 }
+.entry .when { color: var(--muted); font-size: 8.2pt }
+
+.group + .group { margin-block-start: 2.6mm }
+.group p { font-size: 8pt; color: var(--muted); margin-block-end: 1mm }
+
+.chips { display: flex; flex-wrap: wrap; gap: 1.4mm; list-style: none; padding: 0; margin: 0 }
+
+.chips li {
+  border: 1px solid var(--line);
+  border-radius: 1.4mm;
+  padding: 0.6mm 2mm;
+  font-size: 8pt;
+  line-height: 1.5;
+}
+
+.rows { list-style: none; padding: 0; margin: 0 }
+.rows li { display: flex; justify-content: space-between; gap: 3mm; margin-block-start: 1mm }
+.rows .when { color: var(--muted); font-size: 8pt; white-space: nowrap }
+
+.note { color: var(--muted) }
+.note strong { color: var(--ink); font-weight: 500 }

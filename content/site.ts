@@ -24,9 +24,11 @@ export const site = {
     github: "https://github.com/pnnph/",
   },
 
-  /** فایل رزومه هنوز اضافه نشده. وقتی آماده شد در public/assets/ بگذار
-   *  و مسیرش را اینجا بنویس؛ دکمه‌ها خودکار فعال می‌شوند. */
-  resume: "",
+  /** رزومه، یکی برای هر زبان. با tools/cv/build.mjs ساخته می‌شوند. */
+  resume: {
+    en: "/assets/cv/peiman-asgari-cv-en.pdf",
+    fa: "/assets/cv/peiman-asgari-cv-fa.pdf",
+  },
 
   /** لینک استورهای مغزینو — قبل از انتشار باید واقعاً باز شوند.
    *  هر کدام که هنوز در صف بررسی است، خالی بماند. */

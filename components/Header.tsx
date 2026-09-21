@@ -6,7 +6,6 @@
 // روی موبایل، منو داخل یک صفحهٔ کشویی می‌رود؛ روی دسکتاپ همه‌چیز در یک خط است.
 import { useEffect, useRef, useState } from "react";
 import type { Content } from "@/content/en";
-import { site } from "@/content/site";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
@@ -15,11 +14,14 @@ export function Header({
   t,
   otherLanguageHref,
   home = "",
+  resumeHref,
 }: {
   t: Content;
   otherLanguageHref: string;
   /** پیشوند لینک‌های لنگردار. در صفحهٔ اصلی خالی، در زیرصفحه‌ها "/" یا "/fa/". */
   home?: string;
+  /** رزومهٔ همان زبان. اگر خالی باشد، دکمه‌اش اصلاً نمی‌آید. */
+  resumeHref?: string;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -65,7 +67,7 @@ export function Header({
   const links = [
     { href: `${home}#story`, label: t.nav.story },
     { href: `${home}#works`, label: t.nav.works },
-    ...(site.resume ? [{ href: site.resume, label: t.nav.resume }] : []),
+    ...(resumeHref ? [{ href: resumeHref, label: t.nav.resume }] : []),
     { href: `${home}#contact`, label: t.nav.contact },
   ];
 

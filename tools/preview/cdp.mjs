@@ -80,6 +80,17 @@ export async function openChrome({ port = 9335 } = {}) {
       return Buffer.from(r.data, "base64");
     },
 
+    /** چاپ به PDF. متن انتخاب‌شدنی می‌ماند، پس سیستم‌های استخدامی می‌توانند بخوانندش. */
+    async pdf({ landscape = false } = {}) {
+      const r = await send("Page.printToPDF", {
+        printBackground: true,
+        preferCSSPageSize: true,
+        landscape,
+        marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0,
+      });
+      return Buffer.from(r.data, "base64");
+    },
+
     async contentClip() {
       const { cssContentSize, contentSize } = await send("Page.getLayoutMetrics");
       const size = cssContentSize || contentSize;

@@ -1,5 +1,6 @@
 // صفحهٔ اصلی انگلیسی — آدرس /
 import { en } from "@/content/en";
+import { site } from "@/content/site";
 import { Background } from "@/components/Background";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -26,7 +27,7 @@ export default function HomeEnglish() {
       <a className="skip-link" href="#main">
         {en.nav.skip}
       </a>
-      <Header t={en} otherLanguageHref="/fa/" />
+      <Header t={en} otherLanguageHref="/fa/" resumeHref={site.resume.en} />
       <main id="main">
         <Hero t={en} />
         <About t={en} />

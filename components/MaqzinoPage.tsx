@@ -14,10 +14,12 @@ export function MaqzinoPage({
   t,
   home,
   otherLanguageHref,
+  resumeHref,
 }: {
   t: Content;
   home: string;
   otherLanguageHref: string;
+  resumeHref: string;
 }) {
   const { maqzino } = t.works;
   const page = t.maqzinoPage;
@@ -34,7 +36,7 @@ export function MaqzinoPage({
       <a className="skip-link" href="#main">
         {t.nav.skip}
       </a>
-      <Header t={t} home={home} otherLanguageHref={otherLanguageHref} />
+      <Header t={t} home={home} otherLanguageHref={otherLanguageHref} resumeHref={resumeHref} />
 
       <main id="main" className="page">
         <article>

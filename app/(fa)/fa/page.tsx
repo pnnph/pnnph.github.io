@@ -1,5 +1,6 @@
 // صفحهٔ اصلی فارسی — آدرس /fa/
 import { fa } from "@/content/fa";
+import { site } from "@/content/site";
 import { Background } from "@/components/Background";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -26,7 +27,7 @@ export default function HomePersian() {
       <a className="skip-link" href="#main">
         {fa.nav.skip}
       </a>
-      <Header t={fa} otherLanguageHref="/" />
+      <Header t={fa} otherLanguageHref="/" resumeHref={site.resume.fa} />
       <main id="main">
         <Hero t={fa} />
         <About t={fa} />
