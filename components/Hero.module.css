@@ -22,7 +22,7 @@
   position: absolute;
   inset: 0;
   margin: 0;
-  font-size: clamp(2.6rem, 11vw, 7.5rem);
+  font-size: clamp(3rem, 14vw, 10.5rem);
   font-weight: 700;
   line-height: 0.92;
   pointer-events: none;
@@ -34,11 +34,19 @@
   white-space: nowrap;
 }
 
+/* نام کوچک: دو نیمه در دو لبه، با سر در میانشان. */
+.given {
+  display: flex;
+  justify-content: space-between;
+  inline-size: 74%;
+  margin-inline: auto;
+}
+
 /* نام کوچک پشت تصویر می‌نشیند، نام خانوادگی رویش — همان چیدمان طرح. */
 .given {
   z-index: 1;
-  inset-block-start: 2%;
-  inset-inline-start: 3%;
+  inset-block-start: 1%;
+  inset-inline: 0;
 }
 
 .family {
@@ -137,6 +145,6 @@
   }
 
   .name {
-    font-size: clamp(4rem, 7.5vw, 7.5rem);
+    font-size: clamp(5rem, 10vw, 10.5rem);
   }
 }

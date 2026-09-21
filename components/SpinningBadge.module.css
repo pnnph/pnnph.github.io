@@ -1,7 +1,7 @@
 .badge {
   position: relative;
-  inline-size: 7.5rem;
-  block-size: 7.5rem;
+  inline-size: 5.4rem;
+  block-size: 5.4rem;
   display: grid;
   place-items: center;
 }
@@ -15,7 +15,7 @@
   inline-size: 100%;
   block-size: 100%;
   fill: var(--text-muted);
-  font-size: 9px;
+  font-size: 10px;
   text-transform: uppercase;
   animation: spin 22s linear infinite;
 }
@@ -34,18 +34,18 @@
 }
 
 .mark {
-  inline-size: 46%;
-  block-size: 46%;
+  inline-size: 50%;
+  block-size: 50%;
   color: var(--text);
 }
 
 @media (min-width: 56rem) {
   .badge {
-    inline-size: 9rem;
-    block-size: 9rem;
+    inline-size: 6.2rem;
+    block-size: 6.2rem;
   }
 
   .ring {
-    font-size: 8.4px;
+    font-size: 9.6px;
   }
 }

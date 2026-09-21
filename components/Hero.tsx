@@ -25,7 +25,11 @@ export function Hero({ t }: { t: Content }) {
       {/* سه لایه روی هم: نام کوچک، پرتره، نام خانوادگی. ترتیبشان در CSS با z-index است. */}
       <div className={styles.stage}>
         <motion.h1 className={styles.name} {...rise(0)}>
-          <span className={styles.given}>{t.hero.given}</span>
+          {/* دو تکه، چسبیده به دو لبه؛ سر در فاصلهٔ میانشان می‌نشیند. */}
+          <span className={styles.given}>
+            <span>{t.hero.givenStart}</span>
+            <span>{t.hero.givenEnd}</span>
+          </span>
           <span className={styles.family}>{t.hero.family}</span>
         </motion.h1>
 
