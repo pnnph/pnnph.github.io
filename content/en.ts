@@ -137,7 +137,7 @@ export const en = {
       "Searching for a region by name",
       "The settings menu",
       "The app's navigation menu",
-      "Creating an account inside the app",
+      "Signing in to the app",
       "The subcortical structures",
     ],
     stackHeading: "Built with",
