@@ -19,7 +19,7 @@ export const en = {
     works: "My work",
     resume: "Download CV",
     contact: "Get in touch",
-    switchLanguage: "فارسی",
+    switchLanguage: "FA",
     theme: "Switch theme",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -30,6 +30,9 @@ export const en = {
     photoAlt: "Peiman Asgari",
     photoPlaceholder: "Your photo goes here",
     name: "Peiman Asgari",
+    given: "Peiman",
+    family: "Asgari",
+    badge: "peiman asgari portfolio",
     title: "Psychologist, designer, web & mobile developer",
     intro:
       "I'm Peiman — a psychologist and trauma therapist who builds things. Art, digital design, and software for the web and for phones.",

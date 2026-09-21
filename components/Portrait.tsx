@@ -1,25 +1,28 @@
-// قاب عکس شخصی در هیرو.
+// پرتره — بدون قاب، داخل یک دایرهٔ نامرئی که لبه‌هایش و مخصوصاً پایینش محو می‌شود.
 //
-// تا وقتی عکس واقعی نرسیده، یک جایگاه تمیز نشان می‌دهد — نه یک آواتار الکی.
-// برای گذاشتن عکس: فایل را در public/assets/photo/ بگذار و مسیرش را در
-// content/site.ts (کلید photo) بنویس. هیچ جای دیگری نیاز به تغییر ندارد.
+// دو نسخه دارد (رنگی و سیاه‌وسفید)؛ انتخابش در content/site.ts است.
+// تا وقتی عکسی نباشد، جای خالی تمیزی نشان می‌دهد.
 import { site } from "@/content/site";
 import { Logo } from "./Logo";
 import styles from "./Portrait.module.css";
 
 export function Portrait({ alt, placeholder }: { alt: string; placeholder: string }) {
+  const src = site.photo[site.photoVariant];
+
+  if (!src) {
+    return (
+      <div className={styles.empty} role="img" aria-label={placeholder}>
+        <span className={styles.emptyMark} aria-hidden="true">
+          <Logo />
+        </span>
+        <span className={styles.emptyText}>{placeholder}</span>
+      </div>
+    );
+  }
+
   return (
     <figure className={styles.frame}>
-      {site.photo ? (
-        <img src={site.photo} alt={alt} className={styles.photo} width={1200} height={1500} />
-      ) : (
-        <div className={styles.empty} role="img" aria-label={placeholder}>
-          <span className={styles.emptyMark} aria-hidden="true">
-            <Logo />
-          </span>
-          <span className={styles.emptyText}>{placeholder}</span>
-        </div>
-      )}
+      <img src={src} alt={alt} className={styles.photo} width={1000} height={1000} />
       <span className={styles.glow} aria-hidden="true" />
     </figure>
   );

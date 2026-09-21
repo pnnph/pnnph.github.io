@@ -2,58 +2,59 @@
   position: relative;
   margin: 0;
   inline-size: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--glass-tint);
-  box-shadow: var(--shadow-card);
-  isolation: isolate;
-}
-
-/* قاب یک‌پیکسلی گرادیانی، همان امضای شیشه‌ای بقیهٔ سایت. */
-.frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(160deg, var(--glass-border-from), var(--glass-border-to));
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
+  aspect-ratio: 1 / 1;
 }
 
 .photo {
   inline-size: 100%;
   block-size: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  /* دایرهٔ نامرئی: لبه‌ها نرم محو می‌شوند و پایینِ تصویر کامل در پس‌زمینه حل می‌شود. */
+  -webkit-mask:
+    radial-gradient(circle at 50% 42%, #000 54%, rgb(0 0 0 / 0.6) 68%, transparent 82%),
+    linear-gradient(180deg, #000 56%, transparent 94%);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle at 50% 42%, #000 54%, rgb(0 0 0 / 0.6) 68%, transparent 82%),
+    linear-gradient(180deg, #000 56%, transparent 94%);
+  mask-composite: intersect;
 }
 
-/* جایگاه خالی تا رسیدن عکس واقعی. */
+/* درخشش ملایم پشت سر، تا پرتره از پس‌زمینه جدا شود. */
+.glow {
+  position: absolute;
+  inset: 12% 8% 20%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--primary), transparent);
+  opacity: 0.22;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* ── جای خالی، تا وقتی عکسی نیست ─────────────────────────────────────── */
+
 .empty {
-  block-size: 100%;
+  aspect-ratio: 4 / 5;
   display: grid;
   place-content: center;
   justify-items: center;
   gap: var(--space-4);
   padding: var(--space-8);
   text-align: center;
+  border-radius: var(--radius-lg);
   background: var(--glass-tint);
   backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--outline-soft);
 }
 
 .emptyMark {
   display: grid;
   place-items: center;
-  padding: 1.1rem;
   inline-size: 4.5rem;
   block-size: 4.5rem;
+  padding: 1.1rem;
   border-radius: var(--radius-pill);
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
   color: #fff;
   background: linear-gradient(135deg, var(--primary), var(--tertiary));
   opacity: 0.85;
@@ -63,15 +64,4 @@
   font-size: 0.9375rem;
   color: var(--text-muted);
   max-inline-size: 14rem;
-}
-
-.glow {
-  position: absolute;
-  inset: 30% 0 0;
-  z-index: -1;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, var(--primary), transparent);
-  opacity: 0.3;
-  filter: blur(48px);
-  pointer-events: none;
 }

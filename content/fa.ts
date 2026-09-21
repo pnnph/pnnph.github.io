@@ -18,7 +18,7 @@ export const fa: Content = {
     works: "پروژه‌های من",
     resume: "دانلود رزومه",
     contact: "تماس با من",
-    switchLanguage: "English",
+    switchLanguage: "EN",
     theme: "تغییر پوسته",
     openMenu: "باز کردن منو",
     closeMenu: "بستن منو",
@@ -29,6 +29,9 @@ export const fa: Content = {
     photoAlt: "پیمان عسگری",
     photoPlaceholder: "جای عکس شخصی",
     name: "پیمان عسگری",
+    given: "پیمان",
+    family: "عسگری",
+    badge: "peiman asgari portfolio",
     title: "روان‌شناس، طراح و توسعه‌دهندهٔ وب و موبایل",
     intro:
       "من پیمان هستم، روان‌شناس و تروما درمانگر، علاقه‌مند به هنر، طراحی دیجیتال و توسعه‌دهندهٔ وب و موبایل.",

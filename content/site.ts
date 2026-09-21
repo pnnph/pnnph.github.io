@@ -12,9 +12,14 @@ export const site = {
    *  پس با خریدن دامنه فقط همین یک خط عوض می‌شود. */
   url: "https://pnnph.github.io",
 
-  /** عکس شخصی. فایل را در public/assets/photo/ بگذار و مسیرش را اینجا بنویس،
-   *  مثلاً "/assets/photo/peiman.jpg". تا وقتی خالی است، جایگاه خالی نشان داده می‌شود. */
-  photo: "/assets/photo/peiman-900.jpg",
+  /** عکس شخصی، بدون پس‌زمینه. دو نسخه ساخته شده؛ با photoVariant انتخاب می‌شود. */
+  photo: {
+    colour: "/assets/photo/peiman-colour.webp",
+    grey: "/assets/photo/peiman-grey.webp",
+  },
+
+  /** کدام نسخه روی سایت بنشیند: "colour" یا "grey". */
+  photoVariant: "colour" as "colour" | "grey",
 
   email: "peimanasgari@gmail.com",
 

@@ -1,42 +1,88 @@
 .hero {
+  padding-block: var(--space-8) var(--space-16);
   display: grid;
-  gap: var(--space-12);
-  padding-block: var(--space-12) var(--space-16);
-  align-items: center;
+  justify-items: center;
+  text-align: center;
 }
 
-.eyebrow {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-block-end: var(--space-4);
-  /* خط نازکی که از متن جدا می‌شود — امضای صفحه‌های مجله‌ای. */
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
+/* ── صحنه: نام، پرتره و نشان روی هم ──────────────────────────────────── */
 
-.eyebrow::after {
-  content: "";
-  block-size: 1px;
-  inline-size: min(6rem, 20%);
-  background: var(--outline-soft);
+.stage {
+  position: relative;
+  inline-size: 100%;
+  max-inline-size: 46rem;
+  /* ارتفاع از پنجره می‌آید، نه از عرض — وگرنه روی نمایشگر پهن، متن زیر خط دید می‌افتد. */
+  block-size: min(56vh, 26rem);
+  display: grid;
+  place-items: center;
+  margin-block-end: var(--space-8);
 }
 
 .name {
-  font-size: var(--step-4);
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-size: clamp(2.6rem, 11vw, 7.5rem);
   font-weight: 700;
-  margin-block-end: var(--space-3);
+  line-height: 0.92;
+  pointer-events: none;
 }
+
+.given,
+.family {
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* نام کوچک پشت تصویر می‌نشیند، نام خانوادگی رویش — همان چیدمان طرح. */
+.given {
+  z-index: 1;
+  inset-block-start: 2%;
+  inset-inline-start: 3%;
+}
+
+.family {
+  z-index: 3;
+  inset-block-end: 3%;
+  inset-inline-end: 4%;
+  /* کمی درخشش تا روی تصویر هم خوانا بماند. */
+  text-shadow: 0 0 40px rgb(0 0 0 / 0.28);
+}
+
+:root[data-theme="light"] .family,
+[data-theme="light"] .family {
+  text-shadow: 0 0 40px rgb(255 255 255 / 0.55);
+}
+
+.portrait {
+  position: absolute;
+  z-index: 2;
+  inset-block: 0;
+  inset-inline: 0;
+  margin-inline: auto;
+  block-size: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.badge {
+  position: absolute;
+  z-index: 4;
+  inset-block-end: -2%;
+  /* سمت مقابلِ نام خانوادگی می‌نشیند، همان‌طور که در طرح بود. */
+  inset-inline-start: 2%;
+}
+
+/* ── متن زیر صحنه ────────────────────────────────────────────────────── */
 
 .title {
   font-size: var(--step-1);
   color: var(--text-muted);
-  margin-block-end: var(--space-6);
-  max-width: var(--width-text);
+  margin-block-end: var(--space-4);
+  max-width: 34rem;
 }
 
 .intro {
-  max-width: 32rem;
+  max-width: 34rem;
   margin-block-end: var(--space-8);
 }
 
@@ -44,9 +90,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  justify-content: center;
 }
 
-/* دکمهٔ اصلی: گرادیان، درخشش، و کوچک‌شدن هنگام فشار — همان حس اپ. */
 .primary,
 .secondary {
   display: inline-flex;
@@ -58,19 +104,13 @@
   font-weight: 500;
   transition:
     transform var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out);
 }
 
 .primary {
   background: linear-gradient(90deg, var(--primary), var(--tertiary));
   color: #fff;
   box-shadow: var(--shadow-glow);
-}
-
-.primary:active,
-.secondary:active {
-  transform: scale(0.97);
 }
 
 .secondary {
@@ -82,24 +122,21 @@
   border-color: var(--primary);
 }
 
-.visual {
-  justify-self: center;
-  inline-size: 100%;
-  max-inline-size: 24rem;
-}
-
-.caption {
-  margin-block-start: var(--space-6);
-  text-align: center;
-  font-size: 0.875rem;
-  color: var(--text-muted);
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
 }
 
 @media (min-width: 56rem) {
   .hero {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: var(--space-16);
-    padding-block: var(--space-16) var(--space-24);
-    min-block-size: calc(100dvh - 6rem);
+    padding-block: var(--space-4) var(--space-24);
+  }
+
+  .stage {
+    max-inline-size: 50rem;
+  }
+
+  .name {
+    font-size: clamp(4rem, 7.5vw, 7.5rem);
   }
 }

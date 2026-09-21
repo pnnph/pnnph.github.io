@@ -1,0 +1,51 @@
+.badge {
+  position: relative;
+  inline-size: 7.5rem;
+  block-size: 7.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.ring {
+  /* متن لاتین است و باید همیشه چپ‌به‌راست بماند.
+     در صفحهٔ فارسی، textPath با direction: rtl روی خودش جمع می‌شود و عملاً ناپدید. */
+  direction: ltr;
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  fill: var(--text-muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  animation: spin 22s linear infinite;
+}
+
+/* متن چرخان تزئینی است؛ با «کاهش حرکت» می‌ایستد. */
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mark {
+  inline-size: 46%;
+  block-size: 46%;
+  color: var(--text);
+}
+
+@media (min-width: 56rem) {
+  .badge {
+    inline-size: 9rem;
+    block-size: 9rem;
+  }
+
+  .ring {
+    font-size: 8.4px;
+  }
+}
