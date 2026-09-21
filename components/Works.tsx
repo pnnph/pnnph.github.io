@@ -57,7 +57,7 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
                   <li key={store.name} className={styles.store}>
                     <span>{store.name}</span>
                     {store.url ? (
-                      <a href={store.url} target="_blank" rel="noopener">
+                      <a href={store.url} target="_blank" rel="noopener" className={styles.storeLink}>
                         {maqzino.get}
                       </a>
                     ) : (
@@ -72,7 +72,8 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
             </div>
 
             <a href={maqzinoHref} className={styles.more}>
-              {maqzino.more}{" "}
+              {/* فاصلهٔ بین متن و فلش از gap می‌آید، نه از یک فاصلهٔ متنی. */}
+              {maqzino.more}
               <span className={styles.arrow} aria-hidden="true">
                 →
               </span>

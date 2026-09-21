@@ -129,7 +129,7 @@ export function MaqzinoPage({
                     <span>{store.name}</span>
                     {/* دکمه فقط وقتی می‌آید که آدرسش واقعاً باز شود. */}
                     {store.url ? (
-                      <a href={store.url} target="_blank" rel="noopener">
+                      <a href={store.url} target="_blank" rel="noopener" className={styles.storeLink}>
                         {maqzino.get}
                       </a>
                     ) : (

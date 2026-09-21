@@ -126,15 +126,45 @@
   gap: var(--space-4);
 }
 
-.pending {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  padding: var(--space-1) var(--space-3);
+/* دو حالتِ یک فروشگاه، با یک قالب: هم‌قد، هم‌شکل، و از هم قابل تشخیص.
+   «در صف بررسی» خط‌چینِ خاموش است و «دریافت» قرصِ رنگیِ قابل زدن. */
+.pending,
+.storeLink {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding-inline: var(--space-4);
   border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.pending {
+  color: var(--text-muted);
   border: 1px dashed var(--outline-soft);
 }
 
-.storeLink,
+/* قبلاً لینک متنی ساده بود و کنار نام فروشگاه دیده نمی‌شد. */
+.storeLink {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.storeLink:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.storeLink:active {
+  transform: scale(0.97);
+}
+
 .privacy {
   font-size: 0.9375rem;
 }
@@ -170,13 +200,26 @@
   }
 }
 
+/* کارِ اصلیِ این کارت است، پس دکمهٔ اصلی می‌شود — همان قرصِ گرادیانی هیرو.
+   قبلاً فقط متنی با یک خط زیرش بود و مثل دکمه دیده نمی‌شد. */
 .more {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 3rem;
   margin-block-start: var(--space-6);
+  padding-inline: var(--space-6);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--primary), var(--tertiary));
+  color: #fff;
   font-weight: 500;
   text-decoration: none;
-  border-block-end: 1px solid var(--primary);
-  padding-block-end: var(--space-1);
+  box-shadow: var(--shadow-glow);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.more:active {
+  transform: scale(0.97);
 }
 
 .arrow {
