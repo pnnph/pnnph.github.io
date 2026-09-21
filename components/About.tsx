@@ -46,9 +46,12 @@ export function About({ t }: { t: Content }) {
             {about.education.items.map(item => (
               <li key={item.degree} className={styles.entry}>
                 <span className={styles.entryTitle}>{item.degree}</span>
-                <span className={styles.entryMeta}>
-                  {item.place} · {item.year}
-                </span>
+                {/* دانشگاه و سال هنوز داده نشده‌اند؛ تا وقتی نیایند، خط خالی چاپ نمی‌شود. */}
+                {"place" in item || "year" in item ? (
+                  <span className={styles.entryMeta}>
+                    {[item.place, item.year].filter(Boolean).join(" · ")}
+                  </span>
+                ) : null}
               </li>
             ))}
           </ul>

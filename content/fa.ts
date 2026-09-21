@@ -3,7 +3,7 @@
  * برای عوض کردن هر جمله‌ای، فقط همین فایل را ویرایش کن — به کد دست نزن.
  */
 
-import type { Content } from "./en";
+import type { Content, Degree } from "./en";
 
 export const fa: Content = {
   meta: {
@@ -56,7 +56,12 @@ export const fa: Content = {
 
     education: {
       heading: "تحصیلات",
-      items: [{ degree: "— مقطع و رشته —", place: "— دانشگاه —", year: "—" }],
+      items: [
+        { degree: "دانشجوی دکتری روان‌شناسی" },
+        { degree: "کارشناسی ارشد مشاوره" },
+        { degree: "کارشناسی ارشد هوش مصنوعی" },
+        { degree: "کارشناسی برنامه‌نویسی کامپیوتر" },
+      ] as Degree[],
     },
 
     interests: {

@@ -14,7 +14,7 @@ export const site = {
 
   /** عکس شخصی. فایل را در public/assets/photo/ بگذار و مسیرش را اینجا بنویس،
    *  مثلاً "/assets/photo/peiman.jpg". تا وقتی خالی است، جایگاه خالی نشان داده می‌شود. */
-  photo: "",
+  photo: "/assets/photo/peiman-900.jpg",
 
   email: "peimanasgari@gmail.com",
 

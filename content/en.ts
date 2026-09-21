@@ -3,6 +3,9 @@
  * The English is written, not translated word for word from the Persian.
  */
 
+/** یک مدرک. دانشگاه و سال اختیاری‌اند تا هر وقت آمدند فقط به این فایل اضافه شوند. */
+export type Degree = { degree: string; place?: string; year?: string };
+
 export const en = {
   meta: {
     title: "Peiman Asgari",
@@ -55,8 +58,12 @@ export const en = {
 
     education: {
       heading: "Education",
-      /* ⚠️ خالی است. رشته، دانشگاه و سال را اینجا بنویس. */
-      items: [{ degree: "— degree —", place: "— university —", year: "—" }],
+      items: [
+        { degree: "PhD student, Psychology" },
+        { degree: "MA, Counselling" },
+        { degree: "MSc, Artificial Intelligence" },
+        { degree: "BSc, Computer Programming" },
+      ] as Degree[],
     },
 
     interests: {
