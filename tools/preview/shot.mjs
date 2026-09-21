@@ -34,8 +34,11 @@ const preset = flag("phone") ? "phone" : flag("tablet") ? "tablet" : "desktop";
 const width = Number(value("w", presets[preset][0]));
 const height = Number(value("h", presets[preset][1]));
 let full = flag("full");
-const scheme = flag("light") ? "light" : flag("dark") ? "dark" : "dark";
-const settle = Number(value("wait", 400));
+// پیش‌فرض سایت روشن است، پس پیش‌فرض عکس‌گرفتن هم روشن.
+const scheme = flag("dark") ? "dark" : "light";
+// ۴۰۰ کم بود: نشان چرخانِ هیرو ۰٫۴۵ ثانیه تأخیر دارد و ۰٫۷ ثانیه طول می‌کشد،
+// پس در عکس‌ها هنوز شفافیتش صفر بود و انگار اصلاً وجود نداشت.
+const settle = Number(value("wait", 1400));
 
 const isUrl = /^https?:\/\//i.test(target);
 let url;
@@ -57,6 +60,9 @@ try {
   await page.scheme(scheme);
   await page.viewport(width, height, full ? 1 : 2, preset === "phone");
   await page.load(url);
+  // سایت دیگر حالت سیستم را نمی‌خواند؛ پوسته فقط از data-theme می‌آید، همان‌جایی
+  // که دکمهٔ پوسته می‌نویسدش. پس برای عکس‌گرفتن هم باید همان را ست کرد.
+  await page.eval(`document.documentElement.dataset.theme = ${JSON.stringify(scheme)}`);
   // A page that already fits the viewport needs no full-page path, and asking for a
   // beyond-viewport capture of one produces a misaligned image on right-to-left pages.
   if (full && (await page.eval("document.documentElement.scrollHeight")) <= height) {

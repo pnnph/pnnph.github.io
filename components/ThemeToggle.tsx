@@ -1,7 +1,9 @@
 "use client";
 
 // کلید پوستهٔ روشن/تیره.
-// انتخاب کاربر در حافظهٔ مرورگر خودش می‌ماند و دفعهٔ بعد همان اعمال می‌شود.
+//
+// سایت همیشه روشن باز می‌شود — حالت گوشی خوانده نمی‌شود. فقط زدن همین دکمه
+// پوسته را عوض می‌کند، و انتخاب در حافظهٔ مرورگر خودِ کاربر می‌ماند تا دفعهٔ بعد.
 import { useEffect, useState } from "react";
 import styles from "./ThemeToggle.module.css";
 
@@ -19,11 +21,11 @@ try {
 export function ThemeToggle({ label }: { label: string }) {
   const [theme, setTheme] = useState<Theme | null>(null);
 
-  // تا وقتی جاوااسکریپت اجرا نشده، نمی‌دانیم کاربر چه پوسته‌ای دارد.
+  // تا وقتی جاوااسکریپت اجرا نشده، نمی‌دانیم انتخاب ذخیره‌شده‌ای هست یا نه.
+  // اگر نبود، پوسته همان پیش‌فرض سایت است: روشن.
   useEffect(() => {
     const stored = document.documentElement.dataset.theme as Theme | undefined;
-    const system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-    setTheme(stored ?? system);
+    setTheme(stored ?? "light");
   }, []);
 
   function toggle() {

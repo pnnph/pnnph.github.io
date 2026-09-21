@@ -58,8 +58,8 @@
   inset-inline: 0;
   text-align: center;
   font-size: calc(var(--portrait) * 0.30);
-  /* کمی درخشش تا روی تصویر هم خوانا بماند. */
-  text-shadow: 0 0 40px rgb(0 0 0 / 0.28);
+  /* کمی درخشش تا روی تصویر هم خوانا بماند — در پوستهٔ روشن، سفید. */
+  text-shadow: 0 0 40px rgb(255 255 255 / 0.55);
 }
 
 /* حروف فارسی باریک‌ترند: «پیمان» با همان اندازه دوسومِ «Peiman» پهنا می‌گیرد و
@@ -72,9 +72,8 @@
   font-size: calc(var(--portrait) * 0.36);
 }
 
-:root[data-theme="light"] .family,
-[data-theme="light"] .family {
-  text-shadow: 0 0 40px rgb(255 255 255 / 0.55);
+:root[data-theme="dark"] .family {
+  text-shadow: 0 0 40px rgb(0 0 0 / 0.28);
 }
 
 .portrait {

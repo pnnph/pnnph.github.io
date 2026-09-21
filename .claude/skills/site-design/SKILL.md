@@ -71,15 +71,22 @@ night on a phone.
 }
 ```
 
-**Light theme** (`:root[data-theme="light"]`, and the same values under
-`@media (prefers-color-scheme: light)`): `--bg-top: #F7F9FF`, `--bg-bottom: #E6ECFB`,
+**Light is the default** and lives in plain `:root`: `--bg-top: #F8FAFF`, `--bg-bottom: #E9EDFA`,
 `--surface: #FFFFFF`, `--primary: #3D5AFE`, `--secondary: #00897B`, `--tertiary: #6C4BC4`,
-blobs `#8FA6FF` / `#7FD8CB` / `#C3AEFF`, `--text: #1A1F2E`, `--text-muted: #454B5E`,
+blobs `#AFC0FF` / `#A8E5DC` / `#D6C9FF`, `--text: #1A1F2E`, `--text-muted: #4A5266`,
 `--outline: #757C90`, `--outline-soft: #C5CAD8`, `--glass-tint: rgb(255 255 255 / 0.60)`,
-border from `rgb(255 255 255 / 0.60)` to `rgb(0 0 0 / 0.10)`.
+border from `rgb(255 255 255 / 0.90)` to `rgb(0 0 0 / 0.08)`.
 
-Dark is the site's home ground and what to design for first; light must still be checked
-before anything is called finished, because a visitor's phone decides which one they see.
+**Dark lives in `:root[data-theme="dark"]`** and arrives only when the visitor presses the
+theme button; the choice is then kept in their own browser. The site does **not** read
+`prefers-color-scheme` — that was the owner's decision, 2026-09-22: it opens light even on a
+phone set to dark. There is no `[data-theme="light"]` block, because going back to light just
+means the attribute is gone and `:root` already holds the light values. `color-scheme` is
+declared on both so scrollbars and form controls follow the page rather than the system.
+
+Light is what a visitor sees first, so it is what to design for first — but a component is
+only finished once it has been checked in both, and any rule that hangs off the theme must be
+written the same way round: the light value plain, the dark one under `[data-theme="dark"]`.
 
 ### Spacing, radius, shadow
 

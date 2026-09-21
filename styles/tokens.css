@@ -63,40 +63,44 @@
   --font-display: "Vazirmatn", system-ui, sans-serif; /* تیترهای درشت */
   --font-mono: ui-monospace, "Cascadia Code", monospace;
 
-  /* ── پوستهٔ تیره (پیش‌فرض) | Dark theme, deliberately soft ─────────────
-     روشن‌تر از رنگ اپ مغزینو (‎#0B1020‎) چون شب، روی گوشی، آن‌قدر تیره آزاردهنده است. */
-  --bg-top: #141A2B;
-  --bg-bottom: #1E1B3A;
-  --surface: #1B2136;
-  --surface-raised: #232A42;
+  /* ── پوستهٔ روشن (پیش‌فرض) | Light theme, the default ──────────────────
+     سایت همیشه روشن باز می‌شود، حتی اگر گوشی روی حالت تیره باشد. تنها چیزی
+     که این را عوض می‌کند، خودِ دکمهٔ پوسته است؛ انتخابش هم در همان مرورگر
+     می‌ماند و دفعهٔ بعد اعمال می‌شود. */
+  color-scheme: light;
 
-  --primary: #7E9AFF;
-  --secondary: #5FCFBE;
-  --tertiary: #B49BFF;
+  --bg-top: #F8FAFF;
+  --bg-bottom: #E9EDFA;
+  --surface: #FFFFFF;
+  --surface-raised: #FFFFFF;
 
-  --blob-a: #6C8CFF;
-  --blob-b: #58C4B4;
-  --blob-c: #A78BFA;
-  --blob-opacity: 0.2;
+  --primary: #3D5AFE;
+  --secondary: #00897B;
+  --tertiary: #6C4BC4;
 
-  --text: #E6EAF7;
-  --text-muted: #AAB3CE;
-  --outline: #6E7796;
-  --outline-soft: #303852;
+  --blob-a: #AFC0FF;
+  --blob-b: #A8E5DC;
+  --blob-c: #D6C9FF;
+  --blob-opacity: 0.16;
 
-  --glass-tint: rgb(255 255 255 / 0.07);
-  --glass-border-from: rgb(255 255 255 / 0.28);
-  --glass-border-to: rgb(255 255 255 / 0.05);
+  --text: #1A1F2E;
+  --text-muted: #4A5266;
+  --outline: #757C90;
+  --outline-soft: #C5CAD8;
+
+  --glass-tint: rgb(255 255 255 / 0.6);
+  --glass-border-from: rgb(255 255 255 / 0.9);
+  --glass-border-to: rgb(0 0 0 / 0.08);
   --glass-blur: 20px;
 
-  /* بدنهٔ ماکت گوشی. در پوستهٔ تیره شیشه‌ای می‌ماند، در روشن تیره می‌شود —
-     وگرنه سفیدِ روی سفید می‌افتد و اصلاً دیده نمی‌شود که گوشی است. */
-  --phone-body-from: rgb(255 255 255 / 0.22);
-  --phone-body-to: rgb(255 255 255 / 0.04);
-  --phone-edge: rgb(255 255 255 / 0.16);
+  /* بدنهٔ ماکت گوشی. در پوستهٔ روشن تیره است، وگرنه سفیدِ روی سفید می‌افتد و
+     اصلاً دیده نمی‌شود که گوشی است. */
+  --phone-body-from: #39405C;
+  --phone-body-to: #1C2133;
+  --phone-edge: rgb(0 0 0 / 0.22);
 
   --shadow-glow: 0 0 48px -14px var(--primary);
-  --shadow-card: 0 24px 64px -32px rgb(0 0 0 / 0.65);
+  --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
 
   /* ── فاصله‌ها | Spacing ──────────────────────────────────────────────── */
   --space-1: 0.25rem;
@@ -139,69 +143,42 @@
   --font-display: "Bluu Next", "DM Sans", "Vazirmatn", serif;
 }
 
-/* ── پوستهٔ روشن | Light theme ────────────────────────────────────────────
-   هم وقتی گوشی روی حالت روشن است، هم وقتی کاربر دکمه را می‌زند. */
+/* ── پوستهٔ تیره | Dark theme ─────────────────────────────────────────────
+   فقط وقتی می‌آید که کاربر دکمه را زده باشد. حالت گوشی را عمداً نمی‌خوانیم:
+   پیش‌فرض سایت روشن است و تنها انتخاب خود کاربر عوضش می‌کند.
+   روشن‌تر از رنگ اپ مغزینو (‎#0B1020‎) چون شب، روی گوشی، آن‌قدر تیره آزاردهنده است.
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg-top: #F8FAFF;
-    --bg-bottom: #E9EDFA;
-    --surface: #FFFFFF;
-    --surface-raised: #FFFFFF;
+   نیازی به بلوک data-theme="light" نیست: وقتی کاربر به روشن برمی‌گردد، این
+   بلوک دیگر نمی‌گیرد و مقدارهای :root خودشان روشن‌اند. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
 
-    --primary: #3D5AFE;
-    --secondary: #00897B;
-    --tertiary: #6C4BC4;
+  --bg-top: #141A2B;
+  --bg-bottom: #1E1B3A;
+  --surface: #1B2136;
+  --surface-raised: #232A42;
 
-    --blob-a: #AFC0FF;
-    --blob-b: #A8E5DC;
-    --blob-c: #D6C9FF;
-    --blob-opacity: 0.16;
+  --primary: #7E9AFF;
+  --secondary: #5FCFBE;
+  --tertiary: #B49BFF;
 
-    --text: #1A1F2E;
-    --text-muted: #4A5266;
-    --outline: #757C90;
-    --outline-soft: #C5CAD8;
+  --blob-a: #6C8CFF;
+  --blob-b: #58C4B4;
+  --blob-c: #A78BFA;
+  --blob-opacity: 0.2;
 
-    --glass-tint: rgb(255 255 255 / 0.6);
-    --glass-border-from: rgb(255 255 255 / 0.9);
-    --glass-border-to: rgb(0 0 0 / 0.08);
+  --text: #E6EAF7;
+  --text-muted: #AAB3CE;
+  --outline: #6E7796;
+  --outline-soft: #303852;
 
-    --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
+  --glass-tint: rgb(255 255 255 / 0.07);
+  --glass-border-from: rgb(255 255 255 / 0.28);
+  --glass-border-to: rgb(255 255 255 / 0.05);
 
-    --phone-body-from: #39405C;
-    --phone-body-to: #1C2133;
-    --phone-edge: rgb(0 0 0 / 0.22);
-  }
-}
+  --shadow-card: 0 24px 64px -32px rgb(0 0 0 / 0.65);
 
-:root[data-theme="light"] {
-  --bg-top: #F8FAFF;
-  --bg-bottom: #E9EDFA;
-  --surface: #FFFFFF;
-  --surface-raised: #FFFFFF;
-
-  --primary: #3D5AFE;
-  --secondary: #00897B;
-  --tertiary: #6C4BC4;
-
-  --blob-a: #AFC0FF;
-  --blob-b: #A8E5DC;
-  --blob-c: #D6C9FF;
-  --blob-opacity: 0.16;
-
-  --text: #1A1F2E;
-  --text-muted: #4A5266;
-  --outline: #757C90;
-  --outline-soft: #C5CAD8;
-
-  --glass-tint: rgb(255 255 255 / 0.6);
-  --glass-border-from: rgb(255 255 255 / 0.9);
-  --glass-border-to: rgb(0 0 0 / 0.08);
-
-  --shadow-card: 0 24px 64px -36px rgb(26 31 46 / 0.35);
-
-  --phone-body-from: #39405C;
-  --phone-body-to: #1C2133;
-  --phone-edge: rgb(0 0 0 / 0.22);
+  --phone-body-from: rgb(255 255 255 / 0.22);
+  --phone-body-to: rgb(255 255 255 / 0.04);
+  --phone-edge: rgb(255 255 255 / 0.16);
 }
