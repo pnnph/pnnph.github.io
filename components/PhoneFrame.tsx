@@ -32,7 +32,7 @@ export function PhoneFrame({ alt }: { alt: string }) {
             src={src}
             /* فقط اولی alt دارد؛ بقیه تصویر تزئینی‌اند و تکرارشان برای صفحه‌خوان مزاحمت است. */
             alt={i === 0 ? alt : ""}
-            width={900}
+            width={930}
             height={2000}
             loading={i === 0 ? "eager" : "lazy"}
             className={styles.shot}

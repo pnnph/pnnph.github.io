@@ -69,7 +69,7 @@ export function Gallery({
               className={styles.thumb}
               onClick={() => setOpen(i)}
             >
-              <img src={src} alt={captions[i]} width={900} height={2000} loading="lazy" />
+              <img src={src} alt={captions[i]} width={930} height={2000} loading="lazy" />
             </button>
             <p className={styles.caption}>{captions[i]}</p>
           </li>
@@ -82,7 +82,7 @@ export function Gallery({
           <button type="button" className={styles.backdrop} onClick={close} aria-hidden="true" tabIndex={-1} />
 
           <figure className={styles.figure}>
-            <img src={SHOTS[open]} alt={captions[open]} width={900} height={2000} />
+            <img src={SHOTS[open]} alt={captions[open]} width={930} height={2000} />
             <figcaption>{captions[open]}</figcaption>
           </figure>
 
