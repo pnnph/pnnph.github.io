@@ -129,7 +129,8 @@
 /* دو حالتِ یک فروشگاه، با یک قالب: هم‌قد، هم‌شکل، و از هم قابل تشخیص.
    «در صف بررسی» خط‌چینِ خاموش است و «دریافت» قرصِ رنگیِ قابل زدن. */
 .pending,
-.storeLink {
+.storeLink,
+.supportLink {
   display: inline-flex;
   align-items: center;
   min-block-size: 2.75rem;
@@ -144,8 +145,11 @@
   border: 1px dashed var(--outline-soft);
 }
 
-/* قبلاً لینک متنی ساده بود و کنار نام فروشگاه دیده نمی‌شد. */
-.storeLink {
+/* قبلاً لینک متنی ساده بود و کنار نام فروشگاه دیده نمی‌شد.
+   دکمهٔ حمایت هم همین است: قرصِ آرام، نه گرادیانی — دکمهٔ اصلیِ این کارت
+   «بیشتر دربارهٔ مغزینو» است و در هر نما فقط یکی از آن می‌آید. */
+.storeLink,
+.supportLink {
   font-weight: 500;
   text-decoration: none;
   color: var(--primary);
@@ -156,17 +160,39 @@
     color var(--duration-fast) var(--ease-out);
 }
 
-.storeLink:hover {
+.storeLink:hover,
+.supportLink:hover {
   background: var(--primary);
   color: #fff;
 }
 
-.storeLink:active {
+.storeLink:active,
+.supportLink:active {
   transform: scale(0.97);
 }
 
 .privacy {
   font-size: 0.9375rem;
+}
+
+/* ── حمایت ─────────────────────────────────────────────────────────────── */
+
+.support {
+  margin-block-start: var(--space-8);
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--outline-soft);
+}
+
+.supportHeading {
+  font-size: 1rem;
+  margin-block-end: var(--space-2);
+}
+
+.supportBody {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  max-inline-size: var(--width-text);
+  margin-block-end: var(--space-4);
 }
 
 .credit {

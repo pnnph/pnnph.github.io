@@ -79,6 +79,25 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
               </span>
             </a>
 
+            {/* حمایت، بعد از دکمهٔ اصلی: اول اپ را معرفی کن، بعد بگو اگر به کارش
+                آمد می‌شود حمایت کرد. دکمه‌اش اینجا عمداً قرص آرام است نه گرادیانی،
+                چون هر نما فقط یک دکمهٔ اصلی دارد و آن «بیشتر دربارهٔ مغزینو» است.
+                در صفحهٔ خودِ مغزینو برعکس است: آنجا حمایت دکمهٔ اصلی می‌شود. */}
+            <div className={styles.support}>
+              <h4 className={styles.supportHeading}>{maqzino.supportHeading}</h4>
+              <p className={styles.supportBody}>{maqzino.supportBody}</p>
+              {site.support.hamibash ? (
+                <a
+                  href={site.support.hamibash}
+                  target="_blank"
+                  rel="noopener"
+                  className={styles.supportLink}
+                >
+                  {maqzino.supportAction}
+                </a>
+              ) : null}
+            </div>
+
             <p className={styles.credit}>{maqzino.credit}</p>
           </div>
         </article>
