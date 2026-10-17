@@ -152,6 +152,25 @@ export function MaqzinoPage({
               <p className={styles.credit}>{maqzino.credit}</p>
             </section>
           </Reveal>
+
+          {/* حمایت فقط وقتی می‌آید که آدرسش پر شده باشد — مثل لینک استورها.
+              چرایی اینکه این بخش روی سایت است و نه داخل اپ، در content/site.ts. */}
+          {site.support.hamibash && (
+            <Reveal delay={0.05}>
+              <section className={styles.section}>
+                <h2 className={styles.heading}>{maqzino.supportHeading}</h2>
+                <p className={styles.body}>{maqzino.supportBody}</p>
+                <a
+                  href={site.support.hamibash}
+                  target="_blank"
+                  rel="noopener"
+                  className={styles.supportLink}
+                >
+                  {maqzino.supportAction}
+                </a>
+              </section>
+            </Reveal>
+          )}
         </article>
       </main>
 

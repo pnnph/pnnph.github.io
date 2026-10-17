@@ -101,6 +101,10 @@ export const en = {
       statusHeading: "Availability",
       inReview: "In review",
       get: "Get it",
+      supportHeading: "Support Maqzino",
+      supportBody:
+        "Maqzino is free and stays free — no ads, no analytics, nothing locked behind a payment. If it was useful to you and you would like the work to continue, you can chip in. It unlocks nothing in the app; it just makes the next version more likely.",
+      supportAction: "Support the work",
       privacy: "Privacy policy",
       credit: "3D model based on the open Z-Anatomy project (CC BY-SA 4.0).",
       screenshotAlt: "Maqzino on a phone: the 3D brain, a selected region, and explode mode",

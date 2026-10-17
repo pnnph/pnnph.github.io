@@ -218,3 +218,35 @@
     padding-block: var(--space-12);
   }
 }
+
+/* تنها دکمهٔ اصلی این صفحه — لینک‌های استور عمداً خط‌دار و آرام‌اند. */
+.supportLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: var(--space-6);
+  min-block-size: 2.75rem;
+  padding-inline: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(to right, var(--primary), var(--tertiary));
+  box-shadow: var(--shadow-glow);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.supportLink:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supportLink {
+    transition: none;
+  }
+
+  .supportLink:active {
+    transform: none;
+  }
+}
