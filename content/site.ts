@@ -38,7 +38,7 @@ export const site = {
   /** لینک استورهای مغزینو — قبل از انتشار باید واقعاً باز شوند.
    *  هر کدام که هنوز در صف بررسی است، خالی بماند. */
   maqzino: {
-    bazaar: "",
+    bazaar: "https://cafebazaar.ir/app/ir.pnnph.maqzino",
     myket: "https://myket.ir/app/ir.pnnph.maqzino",
     privacy: "https://pnnph.github.io/maqzino-privacy/",
   },
