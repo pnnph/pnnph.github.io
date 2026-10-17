@@ -153,13 +153,14 @@ export function MaqzinoPage({
             </section>
           </Reveal>
 
-          {/* حمایت فقط وقتی می‌آید که آدرسش پر شده باشد — مثل لینک استورها.
+          {/* متن حمایت همیشه می‌آید؛ دکمه‌اش فقط وقتی آدرسش پر شده باشد.
+              دکمه‌ای که به جایی نرود، از نبودنش بدتر است — همان قاعدهٔ لینک استورها.
               چرایی اینکه این بخش روی سایت است و نه داخل اپ، در content/site.ts. */}
-          {site.support.hamibash && (
-            <Reveal delay={0.05}>
-              <section className={styles.section}>
-                <h2 className={styles.heading}>{maqzino.supportHeading}</h2>
-                <p className={styles.body}>{maqzino.supportBody}</p>
+          <Reveal delay={0.05}>
+            <section className={styles.section}>
+              <h2 className={styles.heading}>{maqzino.supportHeading}</h2>
+              <p className={styles.body}>{maqzino.supportBody}</p>
+              {site.support.hamibash ? (
                 <a
                   href={site.support.hamibash}
                   target="_blank"
@@ -168,9 +169,9 @@ export function MaqzinoPage({
                 >
                   {maqzino.supportAction}
                 </a>
-              </section>
-            </Reveal>
-          )}
+              ) : null}
+            </section>
+          </Reveal>
         </article>
       </main>
 
