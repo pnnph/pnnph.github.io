@@ -3,10 +3,10 @@
 Portfolio website for **Peiman Asgari (پیمان عسگری)**, GitHub user `pnnph`. The
 first featured work is **Maqzino (مغزینو)**, an interactive 3D brain atlas for Android.
 
-**Read `docs/handoff.md` before doing anything.** It carries everything decided in the
-Maqzino project: the brand system, app facts, store status, hosting plan and the
-open questions for this site. The owner wants to state the site requirements in this
-project, so nothing has been built yet.
+**Read `docs/handoff.md` before doing anything.** Its §0 says where the site stands now
+and what is still open; the rest carries everything decided in the Maqzino project: the
+brand system, app facts and store status. The site is built and has been live at
+`https://pnnph.github.io` since 2026-09-21.
 
 ## Working rules (from the owner — follow exactly)
 
@@ -16,8 +16,9 @@ project, so nothing has been built yet.
   was «قبل از هر کاری پیشنهاداتت رو بده و ازم تایید بگیر برای هر کاری».
 - **Never handle credentials.** Don't create keys, don't take passwords, don't write
   secrets to files. The owner does those steps himself, and you give instructions.
-- **Show before publishing.** Build and preview locally first. The owner uploads to
-  GitHub himself; `gh` is not installed.
+- **Show before publishing.** Build and preview locally first, then commit locally. The
+  owner publishes by pressing `Push origin` in GitHub Desktop, so never push;
+  `gh` is not installed.
 - Keep the visual language consistent with Maqzino: dark navy/violet gradients, soft
   glowing blobs, frosted-glass cards, the V2 line-brain mark. See `docs/handoff.md` §5.
 - Screenshots or recordings from the owner's phone can show other apps and personal
@@ -30,10 +31,12 @@ CLAUDE.md                     this file
 docs/handoff.md               full context carried over from the Maqzino project
 docs/site-brief.md            the owner's answers: identity, contact, scope, assets
 docs/design-references.md     the references he sent and the direction they set
+docs/publish.md               how the owner publishes, in Persian
 .claude/skills/site-design/   the design system — read it before touching markup or CSS
 app/(en)/, app/(fa)/          pages. English is the default at /, Persian at /fa/
                               /, /maqzino/, /blog/ and /blog/<slug>/ — each mirrored under /fa/
 components/                   UI pieces, each with its own .module.css
+lib/                          date and number formatting per language, and page metadata
 content/en.ts, fa.ts          every string on the site, kept out of the components
 content/posts.ts              the blog posts, both languages in one object per post
 content/site.ts               email, social links, resume path, store URLs
@@ -41,6 +44,7 @@ styles/tokens.css             every colour, font, space and radius — the only 
 public/assets/                only what a page actually loads — it is all published verbatim
 brand-kit/                    the Maqzino and pnnph brand kits, deliberately outside public/
 tools/preview/                headless-Chrome screenshots and a tiny static server
+tools/cv/, tools/og/          sources for the two CV PDFs and the two link-preview cards
 reference/                    copy of the live Maqzino privacy page source
 ```
 
