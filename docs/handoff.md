@@ -22,6 +22,13 @@ publishes by pressing `Push origin` in GitHub Desktop.
 - Home: hero with the portrait, story, works (Maqzino is the featured card), contact and footer.
 - `/maqzino/`: features, the four angles, ten phone screens in a gallery that enlarges them,
   the tech stack, store links, support, the privacy link and the Z-Anatomy credit.
+- Support: the text and a button to `https://hamibash.com/maqzino` sit on the Maqzino page
+  (gradient button) and on the home works card (quiet pill). The URL is
+  `site.support.hamibash` in `content/site.ts`. The Hamibash page was checked from a
+  signed-out browser and from outside Iran on 2026-10-19. Its one reward, "a cup of coffee",
+  says plainly that nothing unlocks in the app, and it must stay that way: an in-app perk
+  would break the stores' payment rules (see the message of commit `cd24ed7`). The page can
+  take 20 seconds or more to load.
 - `/blog/`, with one post so far, about where Maqzino came from.
 - The CV in both languages (`public/assets/cv/`, built from `tools/cv/`), link-preview cards,
   sitemap, hreflang and a 404 page.
@@ -30,20 +37,12 @@ publishes by pressing `Push origin` in GitHub Desktop.
 **Stores:** both are live and both serve 1.0.1 (see §4).
 
 **Still open:**
-1. **Support button.** The support text is already live on the Maqzino page and on the home
-   works card. Its button appears only once `site.support.hamibash` in `content/site.ts` has a
-   URL. The owner created `hamibash.com/maqzino` on 2026-10-17, but it is not public yet: on
-   2026-10-18 the page's own API still returned `{"status":404}` to a signed-out visitor
-   (`https://hamibash.com/api/api/Page/LoadPage/maqzino`). Once the owner says it is published, check
-   it from outside, then fill in the URL; both buttons appear with no other change.
-   Supporting must never unlock anything in the app, because of the stores' payment rules
-   (see the message of commit `cd24ed7`).
-2. **Skills list.** `content/en.ts` still marks the skills under "My story" as a draft for the
+1. **Skills list.** `content/en.ts` still marks the skills under "My story" as a draft for the
    owner to check against reality.
-3. **Other works** besides Maqzino (`docs/site-brief.md`).
-4. **Cafe Bazaar developer profile:** nobody has confirmed that its website field now holds
+2. **Other works** besides Maqzino (`docs/site-brief.md`).
+3. **Cafe Bazaar developer profile:** nobody has confirmed that its website field now holds
    the site URL.
-5. **Domain:** not bought yet. `docs/publish.md` covers what changes when it is.
+4. **Domain:** not bought yet. `docs/publish.md` covers what changes when it is.
 
 Older conversations about this site survive on disk even though the Claude desktop app's
 session list was lost in a reinstall on 2026-10-18. Claude's project memory says where they are.

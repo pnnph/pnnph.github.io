@@ -59,7 +59,7 @@ export const site = {
    * گذاشتی، دکمه خودش ظاهر می‌شود و جای دیگری لازم نیست دست بخورد.
    */
   support: {
-    hamibash: "",
+    hamibash: "https://hamibash.com/maqzino",
   },
 } as const;
 
