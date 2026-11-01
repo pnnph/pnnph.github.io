@@ -41,6 +41,13 @@ export const site = {
     bazaar: "https://cafebazaar.ir/app/ir.pnnph.maqzino",
     myket: "https://myket.ir/app/ir.pnnph.maqzino",
     privacy: "https://pnnph.github.io/maqzino-privacy/",
+    /**
+     * نسخهٔ وب (PWA) — برای آیفون، که مغزینو را از فروشگاه نمی‌تواند بگیرد، و
+     * کامپیوتر. فایل‌هایش در public/app/ هستند و ساخته می‌شوند: منبعشان پوشهٔ
+     * web/ در مخزن خصوصی اپ است و `node tools/publish.mjs` آن‌ها را اینجا
+     * می‌گذارد. دستی ویرایششان نکنید.
+     */
+    web: "/app/",
   },
 
   /**

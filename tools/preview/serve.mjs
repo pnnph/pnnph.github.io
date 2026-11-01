@@ -19,6 +19,11 @@ const types = {
   ".webm": "video/webm",
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
+  // نسخهٔ وب مغزینو در /app/ — همان نوع‌هایی که GitHub Pages می‌فرستد
+  ".webmanifest": "application/manifest+json",
+  ".glb": "model/gltf-binary",
+  ".ttf": "font/ttf",
+  ".mp3": "audio/mpeg",
 };
 
 createServer(async (req, res) => {

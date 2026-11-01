@@ -42,6 +42,9 @@ content/posts.ts              the blog posts, both languages in one object per p
 content/site.ts               email, social links, resume path, store URLs
 styles/tokens.css             every colour, font, space and radius — the only place for them
 public/assets/                only what a page actually loads — it is all published verbatim
+public/app/                   Maqzino web version (PWA) at /app/ — built output, never edit by hand;
+                              its source is web/ in the private app repo, and its
+                              tools/publish.mjs writes this folder
 brand-kit/                    the Maqzino and pnnph brand kits, deliberately outside public/
 tools/preview/                headless-Chrome screenshots and a tiny static server
 tools/cv/, tools/og/          sources for the two CV PDFs and the two link-preview cards

@@ -30,6 +30,9 @@ publishes by pressing `Push origin` in GitHub Desktop.
   would break the stores' payment rules (see the message of commit `cd24ed7`). The page can
   take 20 seconds or more to load.
 - `/blog/`, with one post so far, about where Maqzino came from.
+- `/app/`: the Maqzino web version (PWA, for iPhone and computers), linked from the
+  availability list on `/maqzino/`. `public/app/` is built output from the private app repo
+  (`web/tools/publish.mjs`); never edit it here. Added 2026-11-02.
 - The CV in both languages (`public/assets/cv/`, built from `tools/cv/`), link-preview cards,
   sitemap, hreflang and a 404 page.
 - The site opens in the light theme, and only the button switches it to dark.

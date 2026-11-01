@@ -26,9 +26,11 @@ export function MaqzinoPage({
   const { maqzino } = t.works;
   const page = t.maqzinoPage;
 
+  // دو فروشگاه در زبانهٔ تازه باز می‌شوند؛ نسخهٔ وب بخشی از همین سایت است و در همین زبانه
   const stores = [
-    { name: "Cafe Bazaar", url: site.maqzino.bazaar },
-    { name: "Myket", url: site.maqzino.myket },
+    { name: "Cafe Bazaar", url: site.maqzino.bazaar, action: maqzino.get, external: true },
+    { name: "Myket", url: site.maqzino.myket, action: maqzino.get, external: true },
+    { name: maqzino.web, url: site.maqzino.web, action: maqzino.open, external: false },
   ];
 
   return (
@@ -137,8 +139,12 @@ export function MaqzinoPage({
                     <span>{store.name}</span>
                     {/* دکمه فقط وقتی می‌آید که آدرسش واقعاً باز شود. */}
                     {store.url ? (
-                      <a href={store.url} target="_blank" rel="noopener" className={styles.storeLink}>
-                        {maqzino.get}
+                      <a
+                        href={store.url}
+                        {...(store.external ? { target: "_blank", rel: "noopener" } : {})}
+                        className={styles.storeLink}
+                      >
+                        {store.action}
                       </a>
                     ) : (
                       <span className={styles.pending}>{maqzino.inReview}</span>

@@ -101,6 +101,9 @@ export const en = {
       statusHeading: "Availability",
       inReview: "In review",
       get: "Get it",
+      // نسخهٔ وب مغزینو (PWA) — همان اپ در مرورگر، برای آیفون و کامپیوتر
+      web: "Web — iPhone, iPad, computer",
+      open: "Open",
       supportHeading: "Support Maqzino",
       supportBody:
         "Maqzino is free and stays free — no ads, no analytics, nothing locked behind a payment. If it was useful to you and you would like the work to continue, you can chip in. It unlocks nothing in the app; it just makes the next version more likely.",

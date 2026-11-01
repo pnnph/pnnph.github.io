@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <title>مغزینو · Maqzino</title>
+    <meta name="description" content="اطلس سه‌بعدی و تعاملی مغز انسان، به فارسی و انگلیسی — Interactive 3D atlas of the human brain" />
+    <meta name="theme-color" content="#0b1020" />
+
+    <!-- PWA: نصب روی صفحهٔ اصلی. آیکون‌ها را tools/icons.mjs از آیکون اندروید می‌سازد -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="مغزینو" />
+    <!-- نوار وضعیت آیفون روی اپ می‌افتد؛ فاصله‌اش را safe-area در CSS می‌دهد -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <script>
+      // پوسته و زبان پیش از اولین کشیدن صفحه، تا انیمیشن ورود با رنگ و زبان درست
+      // بیاید. همان کلید و پیش‌فرض‌های SettingsStore در src/app/settings.ts.
+      try {
+        var s = JSON.parse(localStorage.getItem('maqzino.settings') || '{}');
+        var r = document.documentElement;
+        var dark = s.themeMode === 'light' ? false
+          : s.themeMode === 'system' ? matchMedia('(prefers-color-scheme: dark)').matches : true;
+        r.dataset.theme = dark ? 'dark' : 'light';
+        if (s.language === 'en') { r.lang = 'en'; r.dir = 'ltr'; }
+      } catch (e) { /* حالت خصوصی Safari: همان پیش‌فرض‌ها */ }
+    </script>
+    <script type="module" crossorigin src="./assets/index-BJqyJ-lC.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CZrK7kLF.css">
+  </head>
+  <body>
+    <!-- سه هالهٔ رنگی پس‌زمینه — MeshBackground اندروید -->
+    <div id="backdrop" aria-hidden="true"><i></i><i></i><i></i></div>
+    <canvas id="stage"></canvas>
+    <!-- انیمیشن ورود و صفحهٔ بارگذاری — src/intro.ts -->
+    <div id="intro">
+      <div class="intro-art"></div>
+      <div class="intro-status" hidden><span class="spinner"></span><p></p></div>
+    </div>
+    <!-- فقط انیمیشن ورود؛ خودش کد اصلی را بار می‌کند (intro.ts) -->
+  </body>
+</html>
