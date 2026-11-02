@@ -12,9 +12,12 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
 
   // لینک استور فقط وقتی نشان داده می‌شود که واقعاً باز شود. تا آن روز، وضعیتش
   // به‌صورت متن می‌آید — دکمه‌ای که به صفحهٔ ۴۰۴ می‌رود، از نبودنش بدتر است.
+  // دو فروشگاه در زبانهٔ تازه باز می‌شوند؛ نسخهٔ وب بخشی از همین سایت است و در همین زبانه
+  // — همان فهرست صفحهٔ مغزینو (MaqzinoPage.tsx)
   const stores = [
-    { name: "Cafe Bazaar", url: site.maqzino.bazaar },
-    { name: "Myket", url: site.maqzino.myket },
+    { name: "Cafe Bazaar", url: site.maqzino.bazaar, action: maqzino.get, external: true },
+    { name: "Myket", url: site.maqzino.myket, action: maqzino.get, external: true },
+    { name: maqzino.web, url: site.maqzino.web, action: maqzino.open, external: false },
   ];
 
   return (
@@ -57,8 +60,12 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
                   <li key={store.name} className={styles.store}>
                     <span>{store.name}</span>
                     {store.url ? (
-                      <a href={store.url} target="_blank" rel="noopener" className={styles.storeLink}>
-                        {maqzino.get}
+                      <a
+                        href={store.url}
+                        {...(store.external ? { target: "_blank", rel: "noopener" } : {})}
+                        className={styles.storeLink}
+                      >
+                        {store.action}
                       </a>
                     ) : (
                       <span className={styles.pending}>{maqzino.inReview}</span>
