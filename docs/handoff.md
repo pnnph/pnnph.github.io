@@ -12,7 +12,7 @@ Original locations:
 
 ---
 
-## 0. Where things stand (updated 2026-10-18)
+## 0. Where things stand (updated 2026-11-10)
 
 **Live** at `https://pnnph.github.io` since 2026-09-21. Every push to `main` rebuilds and
 publishes it through GitHub Actions (`docs/publish.md`). Claude commits locally, and the owner
@@ -37,7 +37,7 @@ publishes by pressing `Push origin` in GitHub Desktop.
   sitemap, hreflang and a 404 page.
 - The site opens in the light theme, and only the button switches it to dark.
 
-**Stores:** both are live and both serve 1.0.1 (see §4).
+**Stores:** both are live and both serve 1.0.2 (checked 2026-11-10; see §4). The Maqzino web version 1.0.1 is live at `/app/`.
 
 **Still open:**
 1. **Skills list.** `content/en.ts` still marks the skills under "My story" as a draft for the

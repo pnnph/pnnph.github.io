@@ -3,6 +3,9 @@
 Portfolio website for **Peiman Asgari (پیمان عسگری)**, GitHub user `pnnph`. The
 first featured work is **Maqzino (مغزینو)**, an interactive 3D brain atlas for Android.
 
+`AGENTS.md` is the short, tool-neutral brief of this file for other AI assistants; keep the two
+in step.
+
 **Read `docs/handoff.md` before doing anything.** Its §0 says where the site stands now
 and what is still open; the rest carries everything decided in the Maqzino project: the
 brand system, app facts and store status. The site is built and has been live at
