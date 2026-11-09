@@ -81,7 +81,7 @@ export const en = {
 
   works: {
     heading: "My work",
-    lead: "One finished thing, described properly, rather than five half-told ones.",
+    lead: "A few things, each described properly rather than half-told.",
 
     maqzino: {
       name: "Maqzino",
@@ -112,6 +112,18 @@ export const en = {
       credit: "3D model based on the open Z-Anatomy project (CC BY-SA 4.0).",
       screenshotAlt: "Maqzino on a phone: the 3D brain, a selected region, and explode mode",
       more: "More about Maqzino",
+    },
+
+    delphi: {
+      name: "Delphi Digital",
+      role: "Founder and lead developer",
+      description:
+        "The digital arm of the Delphi psychology clinic in Tehran: apps and sites for self-knowledge and mental health care. I set it up and build what it ships.",
+      product:
+        "Its first app is Bamboo — life skills and coping, in Persian, on the web and on Android. Ten life skills, eleven of life's harder challenges, breathing and calm exercises, and a free safety layer that works offline: SOS, crisis lines and a safety plan. What people write stays encrypted on their own phone.",
+      stack: ["React", "TypeScript", "PWA", "Capacitor"],
+      bamboo: "Bamboo on Cafe Bazaar",
+      visit: "Visit",
     },
 
     next: {

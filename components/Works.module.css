@@ -226,6 +226,33 @@
   }
 }
 
+/* ── کارت کوچک: کارهای کنار مغزینو ───────────────────────────────────────── */
+/* همان شیشهٔ .card، بی تصویر و تک‌ستونه. بعد از قاعدهٔ دسکتاپِ .card می‌آید تا بر آن بچربد. */
+
+.compact {
+  margin-block-start: var(--space-6);
+}
+
+.compactBody {
+  max-inline-size: var(--width-text);
+}
+
+.compactBody > :last-child {
+  margin-block-end: 0;
+}
+
+.product {
+  color: var(--text-muted);
+  margin-block-end: var(--space-6);
+}
+
+@media (min-width: 56rem) {
+  .compact {
+    grid-template-columns: 1fr;
+    padding: var(--space-8) var(--space-12);
+  }
+}
+
 /* کارِ اصلیِ این کارت است، پس دکمهٔ اصلی می‌شود — همان قرصِ گرادیانی هیرو.
    قبلاً فقط متنی با یک خط زیرش بود و مثل دکمه دیده نمی‌شد. */
 .more {

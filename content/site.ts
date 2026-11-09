@@ -68,6 +68,18 @@ export const site = {
   support: {
     hamibash: "https://hamibash.com/maqzino",
   },
+
+  /**
+   * دلفی دیجیتال و اپ اولش، بامبو.
+   *
+   * بامبو تا روز انتشار عمومی پشت رمز آزمایشی است و نشانی خودش برای بازدیدکننده
+   * فقط پنجرهٔ رمز باز می‌کند؛ پس فعلاً به صفحهٔ کافه‌بازارش لینک می‌دهیم. آن روز
+   * این خط می‌شود https://bamboo.delphidigitalis.com — در رزومه‌ها (tools/cv) هم.
+   */
+  delphi: {
+    site: "https://delphidigitalis.com",
+    bamboo: "https://cafebazaar.ir/app/com.delphidigital.bamboo",
+  },
 } as const;
 
 export const languages = ["en", "fa"] as const;

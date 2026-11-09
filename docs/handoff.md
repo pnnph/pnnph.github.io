@@ -33,6 +33,15 @@ publishes by pressing `Push origin` in GitHub Desktop.
 - `/app/`: the Maqzino web version (PWA, for iPhone and computers), linked from the
   availability list on `/maqzino/`. `public/app/` is built output from the private app repo
   (`web/tools/publish.mjs`); never edit it here. Added 2026-11-02.
+- Delphi Digital (added 2026-11-10): a smaller glass card under Maqzino in the home works
+  section, and the first entry under Experience in both CVs. The owner founded it as the
+  digital arm of the Delphi psychology clinic; title "Founder and lead developer" /
+  «بنیان‌گذار و توسعه‌دهندهٔ ارشد». Its app Bamboo is still behind a beta password, so both
+  link to `delphidigitalis.com` and Bamboo's Cafe Bazaar page (`site.delphi`). On Bamboo's
+  public launch, switch `site.delphi.bamboo` and the CV text to `bamboo.delphidigitalis.com`.
+  Source of the facts: `D:\Delphi Digital Projects\Bamboo` (README, AGENTS.md, `hub/`).
+- The CVs must stay one A4 page; `tools/cv/build.mjs` warns when they don't. To make room for
+  Delphi Digital, the two Karoon Madan roles became one entry and the personal-site bullet went.
 - The CV in both languages (`public/assets/cv/`, built from `tools/cv/`), link-preview cards,
   sitemap, hreflang and a 404 page.
 - The site opens in the light theme, and only the button switches it to dark.
