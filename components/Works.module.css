@@ -226,30 +226,49 @@
   }
 }
 
-/* ── کارت کوچک: کارهای کنار مغزینو ───────────────────────────────────────── */
-/* همان شیشهٔ .card، بی تصویر و تک‌ستونه. بعد از قاعدهٔ دسکتاپِ .card می‌آید تا بر آن بچربد. */
+/* ── سکو: دلفی دیجیتال ────────────────────────────────────────────────── */
+/* همان شیشهٔ .card. بعد از قاعدهٔ دسکتاپِ .card می‌آید تا ستون‌بندی‌اش بر آن بچربد. */
 
-.compact {
-  margin-block-start: var(--space-6);
+.kicker {
+  font-size: 0.8125rem;
+  color: var(--primary);
+  margin-block-end: var(--space-2);
 }
 
-.compactBody {
-  max-inline-size: var(--width-text);
+.platformVisual {
+  min-inline-size: 0;
 }
 
-.compactBody > :last-child {
-  margin-block-end: 0;
-}
-
-.product {
+/* عنوان کوچکِ بالای کارت‌های محصول: این‌ها روی همان سکو هستند. */
+.products {
+  margin-block: var(--space-12) 0;
+  font-size: 0.875rem;
   color: var(--text-muted);
-  margin-block-end: var(--space-6);
+}
+
+/* ── کارت بامبو: لپ‌تاپ و گوشی ───────────────────────────────────────── */
+
+.devices {
+  position: relative;
+  /* جا برای گوشی که از پایین قاب مرورگر بیرون می‌زند. */
+  padding-block-end: 22%;
+  min-inline-size: 0;
+}
+
+.devicePhone {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 4%;
+  inline-size: 26%;
 }
 
 @media (min-width: 56rem) {
-  .compact {
-    grid-template-columns: 1fr;
-    padding: var(--space-8) var(--space-12);
+  .platform {
+    grid-template-columns: 1fr 1.15fr;
+  }
+
+  .cardWide {
+    grid-template-columns: 1.15fr 1fr;
   }
 }
 

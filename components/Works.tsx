@@ -1,15 +1,26 @@
-// «پروژه‌ها». فعلاً یک کارت بزرگ برای مغزینو — یک کار که خوب معرفی شود،
-// از چند کارت خالی بهتر است. کارهای بعدی کنارش اضافه می‌شوند.
-// اولینشان دلفی دیجیتال است، در کارتی کوچک‌تر زیر مغزینو.
+// «پروژه‌ها». اول نوار دلفی دیجیتال، سکو و ویترین همهٔ محصولات؛ بعد هر محصول در
+// کارت بزرگ خودش: مغزینو، بامبو. هر کارت یک کار را درست معرفی می‌کند —
+// از چند کارت نیم‌بند بهتر است.
 import type { Content } from "@/content/en";
 import { site } from "@/content/site";
+import { BAMBOO_PHONE_CYCLE, BAMBOO_WEB, DELPHI_SHOT } from "./bambooShots";
+import { BrowserFrame } from "./BrowserFrame";
 import { PhoneFrame } from "./PhoneFrame";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import styles from "./Works.module.css";
 
-export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
-  const { maqzino, delphi } = t.works;
+export function Works({
+  t,
+  maqzinoHref,
+  bambooHref,
+}: {
+  t: Content;
+  maqzinoHref: string;
+  bambooHref: string;
+}) {
+  const { maqzino, delphi, bamboo } = t.works;
+  const delphiHost = new URL(site.delphi.site).host;
 
   // لینک استور فقط وقتی نشان داده می‌شود که واقعاً باز شود. تا آن روز، وضعیتش
   // به‌صورت متن می‌آید — دکمه‌ای که به صفحهٔ ۴۰۴ می‌رود، از نبودنش بدتر است.
@@ -21,11 +32,44 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
     { name: maqzino.web, url: site.maqzino.web, action: maqzino.open, external: false },
   ];
 
+  // نسخهٔ وب بامبو تا روز انتشار پشت رمز است؛ تا آن روز «به‌زودی».
+  const bambooStores = [
+    { name: "Cafe Bazaar", url: site.delphi.bamboo, action: maqzino.get },
+    { name: bamboo.web, url: site.delphi.bambooWeb, action: maqzino.open },
+  ];
+
   return (
     <section id="works" className={`page section ${styles.works}`}>
       <Reveal>
         <SectionHeading label={t.nav.works} title={t.works.heading} />
         <p className={styles.lead}>{t.works.lead}</p>
+      </Reveal>
+
+      {/* سکو: پهن، با عکس ویترین. دکمه‌اش قرص آرام است — دکمهٔ گرادیانی مال کارت‌های محصول است. */}
+      <Reveal delay={0.05}>
+        <article className={`${styles.card} ${styles.platform}`}>
+          <div className={styles.body}>
+            <p className={styles.kicker}>{delphi.kicker}</p>
+            <h3 className={styles.name}>{delphi.name}</h3>
+            <p className={styles.role}>{delphi.role}</p>
+            <p className={styles.description}>{delphi.description}</p>
+            <ul className={styles.features}>
+              {delphi.points.map(p => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+            <a href={site.delphi.site} target="_blank" rel="noopener" className={styles.storeLink}>
+              {delphi.visit}
+            </a>
+          </div>
+          <div className={styles.platformVisual}>
+            <BrowserFrame src={DELPHI_SHOT} alt={delphi.shotAlt} address={delphiHost} />
+          </div>
+        </article>
+      </Reveal>
+
+      <Reveal delay={0.05}>
+        <p className={styles.products}>{delphi.products}</p>
       </Reveal>
 
       <Reveal delay={0.1}>
@@ -111,37 +155,60 @@ export function Works({ t, maqzinoHref }: { t: Content; maqzinoHref: string }) {
         </article>
       </Reveal>
 
-      {/* همان شیشه، بی تصویر و بی دکمهٔ گرادیانی: دکمهٔ اصلیِ این بخش مال مغزینو است. */}
+      {/* بامبو هم وب است هم اندروید، پس تصویرش لپ‌تاپ و گوشی کنار هم است. */}
       <Reveal delay={0.1}>
-        <article className={`${styles.card} ${styles.compact}`}>
-          <div className={styles.compactBody}>
-            <p className={styles.role}>{delphi.role}</p>
-            <h3 className={styles.name}>{delphi.name}</h3>
-            <p className={styles.description}>{delphi.description}</p>
-            <p className={styles.product}>{delphi.product}</p>
+        <article className={`${styles.card} ${styles.cardWide}`}>
+          <div className={styles.devices}>
+            <BrowserFrame src={BAMBOO_WEB[0]} alt={bamboo.webAlt} address="bamboo.delphidigitalis.com" />
+            <div className={styles.devicePhone}>
+              <PhoneFrame alt={bamboo.screenshotAlt} shots={BAMBOO_PHONE_CYCLE} width={600} height={1290} />
+            </div>
+          </div>
+
+          <div className={styles.body}>
+            <p className={styles.role}>{bamboo.role}</p>
+            <h3 className={styles.name}>{bamboo.name}</h3>
+            <p className={styles.tagline}>{bamboo.tagline}</p>
+            <p className={styles.description}>{bamboo.description}</p>
+
+            <ul className={styles.features}>
+              {bamboo.features.map(f => (
+                <li key={f}>{f}</li>
+              ))}
+            </ul>
 
             <ul className={styles.chips}>
-              {delphi.stack.map(s => (
+              {bamboo.stack.map(s => (
                 <li key={s} className={styles.chip}>
                   {s}
                 </li>
               ))}
             </ul>
 
-            <ul className={styles.stores}>
-              <li className={styles.store}>
-                <span>{new URL(site.delphi.site).host}</span>
-                <a href={site.delphi.site} target="_blank" rel="noopener" className={styles.storeLink}>
-                  {delphi.visit}
-                </a>
-              </li>
-              <li className={styles.store}>
-                <span>{delphi.bamboo}</span>
-                <a href={site.delphi.bamboo} target="_blank" rel="noopener" className={styles.storeLink}>
-                  {maqzino.get}
-                </a>
-              </li>
-            </ul>
+            <div className={styles.availability}>
+              <p className={styles.availabilityTitle}>{maqzino.statusHeading}</p>
+              <ul className={styles.stores}>
+                {bambooStores.map(store => (
+                  <li key={store.name} className={styles.store}>
+                    <span>{store.name}</span>
+                    {store.url ? (
+                      <a href={store.url} target="_blank" rel="noopener" className={styles.storeLink}>
+                        {store.action}
+                      </a>
+                    ) : (
+                      <span className={styles.pending}>{bamboo.soon}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={bambooHref} className={styles.more}>
+              {bamboo.more}
+              <span className={styles.arrow} aria-hidden="true">
+                →
+              </span>
+            </a>
           </div>
         </article>
       </Reveal>

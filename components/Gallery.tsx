@@ -16,16 +16,26 @@ const SHOTS = Array.from(
 export function Gallery({
   captions,
   labels,
+  shots = SHOTS,
+  width = 930,
+  height = 2000,
+  wide = false,
 }: {
   captions: readonly string[];
   labels: { close: string; previous: string; next: string };
+  /** پیش‌فرض، عکس‌های مغزینو. */
+  shots?: readonly string[];
+  width?: number;
+  height?: number;
+  /** عکس‌های افقی نسخهٔ وب: ستون‌های پهن‌تر و نمای بزرگ پهن‌تر. */
+  wide?: boolean;
 }) {
   const [open, setOpen] = useState<number | null>(null);
   const triggers = useRef<(HTMLButtonElement | null)[]>([]);
   const closeButton = useRef<HTMLButtonElement>(null);
 
   const step = (delta: number) =>
-    setOpen(i => (i === null ? i : (i + delta + SHOTS.length) % SHOTS.length));
+    setOpen(i => (i === null ? i : (i + delta + shots.length) % shots.length));
 
   useEffect(() => {
     if (open === null) return;
@@ -58,8 +68,8 @@ export function Gallery({
 
   return (
     <>
-      <ul className={styles.grid}>
-        {SHOTS.map((src, i) => (
+      <ul className={wide ? `${styles.grid} ${styles.wide}` : styles.grid}>
+        {shots.map((src, i) => (
           <li key={src}>
             <button
               ref={el => {
@@ -69,7 +79,7 @@ export function Gallery({
               className={styles.thumb}
               onClick={() => setOpen(i)}
             >
-              <img src={src} alt={captions[i]} width={930} height={2000} loading="lazy" />
+              <img src={src} alt={captions[i]} width={width} height={height} loading="lazy" />
             </button>
             <p className={styles.caption}>{captions[i]}</p>
           </li>
@@ -81,8 +91,8 @@ export function Gallery({
           {/* کلیک روی فضای خالی هم می‌بندد. */}
           <button type="button" className={styles.backdrop} onClick={close} aria-hidden="true" tabIndex={-1} />
 
-          <figure className={styles.figure}>
-            <img src={SHOTS[open]} alt={captions[open]} width={930} height={2000} />
+          <figure className={wide ? `${styles.figure} ${styles.wideFigure}` : styles.figure}>
+            <img src={shots[open]} alt={captions[open]} width={width} height={height} />
             <figcaption>{captions[open]}</figcaption>
           </figure>
 

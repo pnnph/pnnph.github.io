@@ -123,3 +123,13 @@
 [dir="rtl"] .arrow {
   transform: scaleX(-1);
 }
+
+/* ── عکس‌های افقی (نسخهٔ وب) ───────────────────────────────────────────── */
+
+.wide {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.wideFigure {
+  max-inline-size: 64rem;
+}

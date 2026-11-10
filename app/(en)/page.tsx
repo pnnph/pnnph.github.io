@@ -31,7 +31,7 @@ export default function HomeEnglish() {
       <main id="main">
         <Hero t={en} />
         <About t={en} />
-        <Works t={en} maqzinoHref="/maqzino/" />
+        <Works t={en} maqzinoHref="/maqzino/" bambooHref="/bamboo/" />
         <Contact t={en} />
       </main>
       <Footer t={en} />

@@ -33,13 +33,19 @@ publishes by pressing `Push origin` in GitHub Desktop.
 - `/app/`: the Maqzino web version (PWA, for iPhone and computers), linked from the
   availability list on `/maqzino/`. `public/app/` is built output from the private app repo
   (`web/tools/publish.mjs`); never edit it here. Added 2026-11-02.
-- Delphi Digital (added 2026-11-10): a smaller glass card under Maqzino in the home works
-  section, and the first entry under Experience in both CVs. The owner founded it as the
-  digital arm of the Delphi psychology clinic; title "Founder and lead developer" /
-  «بنیان‌گذار و توسعه‌دهندهٔ ارشد». Its app Bamboo is still behind a beta password, so both
-  link to `delphidigitalis.com` and Bamboo's Cafe Bazaar page (`site.delphi`). On Bamboo's
-  public launch, switch `site.delphi.bamboo` and the CV text to `bamboo.delphidigitalis.com`.
-  Source of the facts: `D:\Delphi Digital Projects\Bamboo` (README, AGENTS.md, `hub/`).
+- Delphi Digital (added 2026-11-10) is the platform and showcase for all the owner's products
+  (Maqzino, Bamboo, and the ones to come). The works section opens with a wide platform band
+  (browser frame with the showcase), then the products under "On Delphi Digital": the Maqzino
+  card, then a Bamboo card of the same weight (browser frame plus a phone cycling four shots).
+  It is also the first entry under Experience in both CVs; title "Founder and lead developer" /
+  «بنیان‌گذار و توسعه‌دهندهٔ ارشد». Source of the facts: `D:\Delphi Digital Projects\Bamboo`.
+- `/bamboo/` and `/fa/bamboo/`: Bamboo's own page, built like the Maqzino page, with a phone
+  gallery (10 shots) and a computer gallery (6 shots). Shots are WebP in `public/assets/bamboo/`,
+  listed in `components/bambooShots.ts` in the same order as `bambooPage` captions; the Delphi
+  shot is in `public/assets/delphi/`. Originals: `C:\Users\sam\Desktop\Bamboo Screen`.
+- Bamboo's web version is behind its beta password, so `site.delphi.bambooWeb` is empty and
+  shows "Soon"; the store row links Cafe Bazaar. On public launch, fill `bambooWeb` with
+  `https://bamboo.delphidigitalis.com` and update the CV text.
 - The CVs must stay one A4 page; `tools/cv/build.mjs` warns when they don't. To make room for
   Delphi Digital, the two Karoon Madan roles became one entry and the personal-site bullet went.
 - The CV in both languages (`public/assets/cv/`, built from `tools/cv/`), link-preview cards,

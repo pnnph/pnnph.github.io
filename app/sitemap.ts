@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     { path: "/", fa: "/fa/", priority: 1 },
     { path: "/maqzino/", fa: "/fa/maqzino/", priority: 0.8 },
+    { path: "/bamboo/", fa: "/fa/bamboo/", priority: 0.8 },
     { path: "/blog/", fa: "/fa/blog/", priority: 0.7 },
     // هر یادداشت، در هر دو زبان. نشانی‌اش در هر دو یکی است.
     ...posts.map(post => ({

@@ -1,0 +1,49 @@
+.browser {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  /* همان بدنهٔ قاب گوشی، تا لپ‌تاپ و گوشی یک خانواده باشند. */
+  background: linear-gradient(160deg, var(--phone-body-from), var(--phone-body-to));
+  border: 1px solid var(--phone-edge);
+  box-shadow: var(--shadow-card);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+}
+
+.dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.dots i {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.28);
+}
+
+.address {
+  flex: 1;
+  max-inline-size: 16rem;
+  margin-inline: auto;
+  padding: 0.15rem var(--space-3);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.1);
+  color: rgb(255 255 255 / 0.7);
+  font-size: 0.6875rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shot {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}

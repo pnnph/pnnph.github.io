@@ -31,7 +31,7 @@ export default function HomePersian() {
       <main id="main">
         <Hero t={fa} />
         <About t={fa} />
-        <Works t={fa} maqzinoHref="/fa/maqzino/" />
+        <Works t={fa} maqzinoHref="/fa/maqzino/" bambooHref="/fa/bamboo/" />
         <Contact t={fa} />
       </main>
       <Footer t={fa} />

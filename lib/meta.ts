@@ -12,6 +12,7 @@ import type { Language } from "@/content/site";
 const paths = {
   home: { en: "/", fa: "/fa/" },
   maqzino: { en: "/maqzino/", fa: "/fa/maqzino/" },
+  bamboo: { en: "/bamboo/", fa: "/fa/bamboo/" },
   blog: { en: "/blog/", fa: "/fa/blog/" },
 };
 

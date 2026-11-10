@@ -115,15 +115,41 @@ export const en = {
     },
 
     delphi: {
+      kicker: "The platform",
       name: "Delphi Digital",
       role: "Founder and lead developer",
       description:
-        "The digital arm of the Delphi psychology clinic in Tehran: apps and sites for self-knowledge and mental health care. I set it up and build what it ships.",
-      product:
-        "Its first app is Bamboo — life skills and coping, in Persian, on the web and on Android. Ten life skills, eleven of life's harder challenges, breathing and calm exercises, and a free safety layer that works offline: SOS, crisis lines and a safety plan. What people write stays encrypted on their own phone.",
-      stack: ["React", "TypeScript", "PWA", "Capacitor"],
-      bamboo: "Bamboo on Cafe Bazaar",
-      visit: "Visit",
+        "The digital arm of the Delphi psychology clinic in Tehran, and the home of everything I make: apps and sites for self-knowledge and mental health care. Each one has its own address and look, and all of them keep one promise — made by psychologists, privacy first.",
+      points: [
+        "One showcase for every product, each standing as a pillar of its own",
+        "No trackers and no ads, on the showcase or in the apps",
+        "Maqzino and Bamboo live there today; the next one gets the empty pillar",
+      ],
+      shotAlt: "The Delphi Digital showcase: a pillar for each tool, with Bamboo and Maqzino",
+      visit: "Visit delphidigitalis.com",
+      products: "On Delphi Digital",
+    },
+
+    bamboo: {
+      name: "Bamboo",
+      role: "Design and development — web and Android",
+      tagline: "Life skills and peace of mind, one step a day",
+      description:
+        "Bamboo teaches life skills and ways of coping, in Persian. A short lesson or exercise each day, a calm practice when you need one, and a shelter for the stormy days — like the bamboo that bends in the storm but does not break.",
+      features: [
+        "Ten life skills, such as problem solving, assertive conversation and soothing yourself",
+        "Eleven of life's harder challenges — anxiety, anger, grief, loneliness, illness and more — each a short course",
+        "Breathing and calm exercises, a mood calendar, and a stem that grows with every day of practice",
+        "A free safety layer that works offline and without an account: SOS, crisis lines, a safety plan and a shelter",
+        "What you write is encrypted on your own phone; no trackers, no ads",
+        "Written by psychologists; every sensitive text is clinically reviewed before it ships",
+      ],
+      stack: ["React", "TypeScript", "Vite", "PWA", "Capacitor", "IndexedDB"],
+      web: "Web — iPhone, computer",
+      soon: "Soon",
+      webAlt: "Bamboo on a computer: today's mood, the growing stem and the install prompt",
+      screenshotAlt: "Bamboo on a phone: today's mood, the skills, calm exercises and the shelter",
+      more: "More about Bamboo",
     },
 
     next: {
@@ -163,6 +189,34 @@ export const en = {
     close: "Close",
     previous: "Previous",
     next: "Next",
+  },
+
+  bambooPage: {
+    phoneHeading: "On the phone",
+    phoneNote: "Android app and phone browser, Persian interface. Tap any screen to see it larger.",
+    phoneShots: [
+      "The welcome screen: Life Skills & Peace of Mind",
+      "Today: how you feel, today's step and the growing stem",
+      "The skills, life challenges and situations as a field of bubbles",
+      "Calm exercises, from one breath to the sound of bamboo in the wind",
+      "Breathing together: touch the ring and let the light guide you",
+      "Ready to begin: choose one breath, one, three or five minutes",
+      "The shelter for stormy days, offline and without an account",
+      "A shelter chapter: financial pressure, in five-minute steps",
+      "SOS: one breath right now, grounding, crisis lines and the safety plan",
+      "Me: the mood calendar, your stem, the safety plan and backup",
+    ],
+    webHeading: "On a computer",
+    webNote: "The same app as a web app, installable from the browser.",
+    webShots: [
+      "Today, with the offer to install Bamboo like an app",
+      "The skills map: every skill, challenge and situation as a star",
+      "SOS opens over whatever you were doing",
+      "Your stem: one knot for each day of practice",
+      "Breathing together, on a wide screen",
+      "The welcome screen",
+    ],
+    platform: "Bamboo is a product of",
   },
 
   blog: {
