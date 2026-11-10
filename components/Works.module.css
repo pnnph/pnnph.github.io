@@ -258,7 +258,9 @@
 .devicePhone {
   position: absolute;
   inset-block-end: 0;
-  inset-inline-end: 4%;
+  /* چپِ فیزیکی، نه سرِ خط: اسکرین‌شات وب آینه نمی‌شود و منوی بامبو سمت راستش است.
+     با inset-inline-end، در صفحهٔ انگلیسی گوشی روی همان منو می‌افتاد. */
+  left: 1%;
   inline-size: 28%;
 }
 

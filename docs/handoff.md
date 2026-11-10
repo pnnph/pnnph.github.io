@@ -45,7 +45,7 @@ publishes by pressing `Push origin` in GitHub Desktop.
   shot is in `public/assets/delphi/`. Originals: `C:\Users\sam\Desktop\Bamboo Screen`.
 - Bamboo's store rows: Cafe Bazaar (Get it), Myket ("Soon" until `site.delphi.bambooMyket` is
   filled) and the web version, linked to `https://bamboo.delphidigitalis.com` (public since
-  2026-11-10, though the official launch has not happened yet).
+  2026-11-10, though the official launch has not happened yet). Both CVs name that address too.
 - PhoneFrame's corners and bezel are percentages of its own width (2026-11-10), so a small phone
   like the one on the Bamboo card stays phone-shaped instead of turning into a pill.
 - The CVs must stay one A4 page; `tools/cv/build.mjs` warns when they don't. To make room for
