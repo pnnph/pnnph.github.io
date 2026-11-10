@@ -30,9 +30,10 @@ export function BambooPage({
   const page = t.bambooPage;
   const labels = { close: shared.close, previous: shared.previous, next: shared.next };
 
-  // نسخهٔ وب تا روز انتشار پشت رمز است؛ تا آن روز «به‌زودی».
+  // هر ردیفی که هنوز نشانی ندارد «به‌زودی» نشان می‌دهد — حالا فقط مایکت.
   const stores = [
     { name: "Cafe Bazaar", url: site.delphi.bamboo, action: maqzino.get },
+    { name: "Myket", url: site.delphi.bambooMyket, action: maqzino.get },
     { name: bamboo.web, url: site.delphi.bambooWeb, action: maqzino.open },
   ];
 

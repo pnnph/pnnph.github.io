@@ -32,9 +32,10 @@ export function Works({
     { name: maqzino.web, url: site.maqzino.web, action: maqzino.open, external: false },
   ];
 
-  // نسخهٔ وب بامبو تا روز انتشار پشت رمز است؛ تا آن روز «به‌زودی».
+  // هر ردیفی که هنوز نشانی ندارد «به‌زودی» نشان می‌دهد — حالا فقط مایکت.
   const bambooStores = [
     { name: "Cafe Bazaar", url: site.delphi.bamboo, action: maqzino.get },
+    { name: "Myket", url: site.delphi.bambooMyket, action: maqzino.get },
     { name: bamboo.web, url: site.delphi.bambooWeb, action: maqzino.open },
   ];
 

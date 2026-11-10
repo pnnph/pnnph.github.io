@@ -43,9 +43,11 @@ publishes by pressing `Push origin` in GitHub Desktop.
   gallery (10 shots) and a computer gallery (6 shots). Shots are WebP in `public/assets/bamboo/`,
   listed in `components/bambooShots.ts` in the same order as `bambooPage` captions; the Delphi
   shot is in `public/assets/delphi/`. Originals: `C:\Users\sam\Desktop\Bamboo Screen`.
-- Bamboo's web version is behind its beta password, so `site.delphi.bambooWeb` is empty and
-  shows "Soon"; the store row links Cafe Bazaar. On public launch, fill `bambooWeb` with
-  `https://bamboo.delphidigitalis.com` and update the CV text.
+- Bamboo's store rows: Cafe Bazaar (Get it), Myket ("Soon" until `site.delphi.bambooMyket` is
+  filled) and the web version, linked to `https://bamboo.delphidigitalis.com` (public since
+  2026-11-10, though the official launch has not happened yet).
+- PhoneFrame's corners and bezel are percentages of its own width (2026-11-10), so a small phone
+  like the one on the Bamboo card stays phone-shaped instead of turning into a pill.
 - The CVs must stay one A4 page; `tools/cv/build.mjs` warns when they don't. To make room for
   Delphi Digital, the two Karoon Madan roles became one entry and the personal-site bullet went.
 - The CV in both languages (`public/assets/cv/`, built from `tools/cv/`), link-preview cards,

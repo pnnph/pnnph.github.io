@@ -79,8 +79,10 @@ export const site = {
   delphi: {
     site: "https://delphidigitalis.com",
     bamboo: "https://cafebazaar.ir/app/com.delphidigital.bamboo",
-    /** نسخهٔ وب بامبو. تا روز انتشار خالی می‌ماند و جایش «به‌زودی» می‌آید. */
-    bambooWeb: "",
+    /** بامبو در مایکت. تا وقتی منتشر نشده خالی است و جایش «به‌زودی» می‌آید. */
+    bambooMyket: "",
+    /** نسخهٔ وب بامبو — باز است، هرچند انتشار رسمی هنوز نشده. */
+    bambooWeb: "https://bamboo.delphidigitalis.com",
   },
 } as const;
 

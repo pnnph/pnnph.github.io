@@ -259,7 +259,7 @@
   position: absolute;
   inset-block-end: 0;
   inset-inline-end: 4%;
-  inline-size: 26%;
+  inline-size: 28%;
 }
 
 @media (min-width: 56rem) {
