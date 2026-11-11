@@ -1,0 +1,28 @@
+.frame {
+  position: relative;
+  inline-size: 100%;
+  max-inline-size: 20rem;
+  margin-inline: auto;
+}
+
+.video {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+/* همان درخشش پشت قاب گوشی کارت‌ها. */
+.glow {
+  position: absolute;
+  inset: 12% 0 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--primary), transparent);
+  opacity: 0.35;
+  filter: blur(40px);
+  pointer-events: none;
+}

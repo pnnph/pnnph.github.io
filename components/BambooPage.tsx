@@ -6,6 +6,7 @@ import { site } from "@/content/site";
 import { Background } from "./Background";
 import { BAMBOO_PHONE, BAMBOO_WEB } from "./bambooShots";
 import { Gallery } from "./Gallery";
+import { Video } from "./Video";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
@@ -76,6 +77,13 @@ export function BambooPage({
               <p className={styles.tagline}>{bamboo.tagline}</p>
               <p className={styles.role}>{bamboo.role}</p>
             </header>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <section id="video" className={styles.section}>
+              <h2 className={styles.heading}>{shared.videoHeading}</h2>
+              <Video src="/assets/bamboo/video/bamboo.mp4" poster="/assets/bamboo/video/poster.webp" label={`${bamboo.name} — ${shared.videoLabel}`} />
+            </section>
           </Reveal>
 
           <Reveal delay={0.05}>

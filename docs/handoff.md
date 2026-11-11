@@ -46,6 +46,12 @@ publishes by pressing `Push origin` in GitHub Desktop.
 - Bamboo's store rows: Cafe Bazaar (Get it), Myket ("Soon" until `site.delphi.bambooMyket` is
   filled) and the web version, linked to `https://bamboo.delphidigitalis.com` (public since
   2026-11-10, though the official launch has not happened yet). Both CVs name that address too.
+- Videos (2026-11-11): each product page opens with a "Video" section (`#video`), and each home
+  card has a quiet "Watch the video" link to it. Click to play only: `preload="none"`, a WebP
+  poster, native controls, `playsInline` (`components/Video.tsx`). Files are 720×1280 H.264 in
+  `public/assets/{maqzino,bamboo}/video/`, about 2.6 MB each; Maqzino keeps its music, Bamboo's
+  source has no sound. Originals: `C:UserssamDesktopVid`, re-encoded with the ffmpeg in the
+  Bamboo project's `node_modules/ffmpeg-static` (CRF 26, `+faststart`).
 - PhoneFrame's corners and bezel are percentages of its own width (2026-11-10), so a small phone
   like the one on the Bamboo card stays phone-shaped instead of turning into a pill.
 - The CVs must stay one A4 page; `tools/cv/build.mjs` warns when they don't. To make room for

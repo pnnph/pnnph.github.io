@@ -152,6 +152,8 @@ export const en = {
       more: "More about Bamboo",
     },
 
+    watch: "Watch the video",
+
     next: {
       heading: "What's next",
       text: "A separate site for my therapy practice, and the things I'm building after Maqzino.",
@@ -171,6 +173,8 @@ export const en = {
       { title: "Neurological", text: "What happens when it works — and what changes when it is damaged." },
       { title: "Anatomical", text: "Its shape, its landmarks, and the Latin names you meet in textbooks." },
     ],
+    videoHeading: "Video",
+    videoLabel: "Introduction video",
     galleryHeading: "Screens",
     galleryNote: "English interface, dark theme. Tap any screen to see it larger.",
     shots: [

@@ -4,6 +4,7 @@ import type { Content } from "@/content/en";
 import { site } from "@/content/site";
 import { Background } from "./Background";
 import { Gallery } from "./Gallery";
+import { Video } from "./Video";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
@@ -72,6 +73,13 @@ export function MaqzinoPage({
               <p className={styles.tagline}>{maqzino.tagline}</p>
               <p className={styles.role}>{maqzino.role}</p>
             </header>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <section id="video" className={styles.section}>
+              <h2 className={styles.heading}>{page.videoHeading}</h2>
+              <Video src="/assets/maqzino/video/maqzino.mp4" poster="/assets/maqzino/video/poster.webp" label={`${maqzino.name} — ${page.videoLabel}`} />
+            </section>
           </Reveal>
 
           <Reveal delay={0.05}>

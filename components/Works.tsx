@@ -131,6 +131,10 @@ export function Works({
                 →
               </span>
             </a>
+            <a href={`${maqzinoHref}#video`} className={styles.watch}>
+              <span aria-hidden="true">▶</span>
+              {t.works.watch}
+            </a>
 
             {/* حمایت، بعد از دکمهٔ اصلی: اول اپ را معرفی کن، بعد بگو اگر به کارش
                 آمد می‌شود حمایت کرد. دکمه‌اش اینجا عمداً قرص آرام است نه گرادیانی،
@@ -209,6 +213,10 @@ export function Works({
               <span className={styles.arrow} aria-hidden="true">
                 →
               </span>
+            </a>
+            <a href={`${bambooHref}#video`} className={styles.watch}>
+              <span aria-hidden="true">▶</span>
+              {t.works.watch}
             </a>
           </div>
         </article>
